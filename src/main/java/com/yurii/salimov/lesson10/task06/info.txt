@@ -1,0 +1,1 @@
+10.6 Реализовать методы HashMap: keySet, entrySet, containsValue etc.

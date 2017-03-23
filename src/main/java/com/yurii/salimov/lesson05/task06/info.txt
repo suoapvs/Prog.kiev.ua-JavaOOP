@@ -1,0 +1,1 @@
+5.6 Разобраться с java.io.BufferedInputStream и java.io. BufferedOutputStream. Подумать как улучшить программу №3 с помощью этих классов.
