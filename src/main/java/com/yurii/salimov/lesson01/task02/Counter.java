@@ -9,10 +9,14 @@ public class Counter {
     private static int count;
 
     public Counter() {
-        count++;
+        increment();
     }
 
     public static int getCount() {
         return count;
+    }
+
+    private static void increment() {
+        count++;
     }
 }

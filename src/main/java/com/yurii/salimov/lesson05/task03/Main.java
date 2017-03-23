@@ -3,7 +3,7 @@ package com.yurii.salimov.lesson05.task03;
 import java.io.IOException;
 
 /**
- * Написать программу, которая считает текстовый файл, заменит в нем все
+ * 5.3 Написать программу, которая считает текстовый файл, заменит в нем все
  * слова "Hello" на "1234" и запишет изменения в тот-же файл.
  *
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)

@@ -2,7 +2,7 @@
 package com.yurii.salimov.lesson08.task01;
 
 /**
- * 1. Написать метод для конвертации массива строк/чисел в список.
+ * 8.1 Написать метод для конвертации массива строк/чисел в список.
  *
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0

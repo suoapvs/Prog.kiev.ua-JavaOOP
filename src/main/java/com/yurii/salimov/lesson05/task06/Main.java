@@ -3,7 +3,7 @@ package com.yurii.salimov.lesson05.task06;
 import java.io.IOException;
 
 /**
- * Разобраться с java.io.BufferedInputStream и java.io. BufferedOutputStream.
+ * 5.6 Разобраться с java.io.BufferedInputStream и java.io. BufferedOutputStream.
  * Подумать как улучшить программу №3 с помощью этих классов.
  *
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)

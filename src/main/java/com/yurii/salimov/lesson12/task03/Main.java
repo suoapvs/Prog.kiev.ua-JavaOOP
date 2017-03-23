@@ -1,7 +1,7 @@
 package com.yurii.salimov.lesson12.task03;
 
 /**
- * 3. Написать стресс-тест для чата.
+ * 12.3 Написать стресс-тест для чата.
  *
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0

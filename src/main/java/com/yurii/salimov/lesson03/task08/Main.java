@@ -1,7 +1,7 @@
 package com.yurii.salimov.lesson03.task08;
 
 /**
- * 8. Написать аналог Integer.parseInt. Использовать исключения.
+ * 3.8 Написать аналог Integer.parseInt. Использовать исключения.
  *
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0

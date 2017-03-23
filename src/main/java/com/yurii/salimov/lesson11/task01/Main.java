@@ -5,7 +5,7 @@ import java.net.URL;
 import java.util.List;
 
 /**
- * 1. Вывести на экран все ссылки, которые содержатся в скачанном HTML документе.
+ * 11.1 Вывести на экран все ссылки, которые содержатся в скачанном HTML документе.
  *
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0

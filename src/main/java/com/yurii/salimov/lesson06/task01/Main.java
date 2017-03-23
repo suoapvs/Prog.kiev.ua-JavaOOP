@@ -1,7 +1,7 @@
 package com.yurii.salimov.lesson06.task01;
 
 /**
- * 1. Модифицировать класс Counter так, чтобы он циклически выводил
+ * 6.1 Модифицировать класс Counter так, чтобы он циклически выводил
  * числа из определенного диапазона.
  *
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)

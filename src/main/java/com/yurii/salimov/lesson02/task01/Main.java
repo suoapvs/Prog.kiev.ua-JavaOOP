@@ -2,7 +2,7 @@
 package com.yurii.salimov.lesson02.task01;
 
 /**
- * Проект "Cars": добавить свойство «объем двигателя» в класс Engine.
+ * 2.1 Проект "Cars": добавить свойство «объем двигателя» в класс Engine.
  * Написать код для вывода потраченного топлива на экран.
  *
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)

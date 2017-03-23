@@ -1,7 +1,7 @@
 package com.yurii.salimov.lesson12.task02;
 
 /**
- * 2. Написать программу для стресс-тестирования веб-серверов.
+ * 12.2 Написать программу для стресс-тестирования веб-серверов.
  *
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0

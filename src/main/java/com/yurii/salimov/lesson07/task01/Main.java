@@ -1,7 +1,7 @@
 package com.yurii.salimov.lesson07.task01;
 
 /**
- * 1. Написать класс, который позволит записывать
+ * 7.1 Написать класс, который позволит записывать
  * текстовые данные в один файл из разных потоков.
  *
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)

@@ -1,7 +1,7 @@
 package com.yurii.salimov.lesson06.task05;
 
 /**
- * 5. * Копирование файла блоками (1 поток на блок).
+ * 6.5 * Копирование файла блоками (1 поток на блок).
  *
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0

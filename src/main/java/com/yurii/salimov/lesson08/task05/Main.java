@@ -1,7 +1,7 @@
 package com.yurii.salimov.lesson08.task05;
 
 /**
- * 5. Написать свою реализацию классов ArrayList и LinkedList.
+ * 8.5 Написать свою реализацию классов ArrayList и LinkedList.
  *
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0

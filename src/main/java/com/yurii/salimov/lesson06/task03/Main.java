@@ -3,7 +3,7 @@ package com.yurii.salimov.lesson06.task03;
 import java.util.ArrayList;
 
 /**
- * 3. Создать 100 потоков, каждый их которых выведет на экран
+ * 6.3 Создать 100 потоков, каждый их которых выведет на экран
  * свой номер и дождется, пока его прервут.
  *
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)

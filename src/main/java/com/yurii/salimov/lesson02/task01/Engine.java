@@ -34,7 +34,7 @@ public class Engine {
     }
 
     public void addMileage(double mileage) {
-        if (this.started) {
+        if (isStarted()) {
             this.mileage += mileage;
         }
     }

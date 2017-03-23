@@ -28,6 +28,10 @@ public class Car {
         System.out.println("Engine is stopped!");
     }
 
+    public boolean isStarted() {
+        return this.started;
+    }
+
     public void speed(int speed, int acceleration) {
         if (this.speed != speed) {
             if (this.speed < speed) {
@@ -44,9 +48,10 @@ public class Car {
     }
 
     private void speedUp(double speed, double acceleration) {
-        if (this.started) {
+        if (!isStarted()) {
+            System.out.println("Start the engine!");
+        } else {
             System.out.println("The car accelerates to " + speed + " km/h with an acceleration of " + acceleration + " km/s:");
-
             while (this.speed != speed) {
                 if (this.speed + acceleration > speed) {
                     acceleration = speed - this.speed;
@@ -59,23 +64,25 @@ public class Car {
                     ex.printStackTrace();
                 }
             }
-        } else {
-            System.out.println("Start the engine!");
         }
     }
 
     private void speedDown(int speed, int acceleration) {
-        System.out.println("The car slows to " + speed + " km/h with an acceleration of -" + acceleration + " km/s:");
-        while (this.speed != speed) {
-            if (this.speed - acceleration < speed) {
-                acceleration = this.speed - speed;
-            }
-            this.speed -= acceleration;
-            System.out.println(this.speed + " km/h");
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
+        if (!isStarted()) {
+            System.out.println("Start the engine!");
+        } else {
+            System.out.println("The car slows to " + speed + " km/h with an acceleration of -" + acceleration + " km/s:");
+            while (this.speed != speed) {
+                if (this.speed - acceleration < speed) {
+                    acceleration = this.speed - speed;
+                }
+                this.speed -= acceleration;
+                System.out.println(this.speed + " km/h");
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
             }
         }
     }

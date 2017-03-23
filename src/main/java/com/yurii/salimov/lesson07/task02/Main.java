@@ -1,8 +1,8 @@
 package com.yurii.salimov.lesson07.task02;
 
 /**
- * 2. Решить задачу про банк с помощью чего-нибудь
- * из java.util.concurrent.* Не через Atomic 
+ * 7.2 Решить задачу про банк с помощью чего-нибудь
+ * из java.util.concurrent.* Не через Atomic. 
  *
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0

@@ -26,22 +26,10 @@ public class Car {
         return getName() + ": distance - " + getMileage() + " km, fuel rate - " + getFuel() + " liters.";
     }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public double getMileage() {
-        return this.engine.getMileage();
-    }
-
-    public double getFuel() {
-        return this.fuel;
-    }
-
     public void turnOn() {
         this.engine.turnOn();
         this.climate.turnOn();
-        this.climate.setTemperture(21);
+        this.climate.setTemperature(21);
     }
 
     public void turnOff() {
@@ -55,5 +43,17 @@ public class Car {
             this.engine.addMileage(distance);
             this.fuel += distance * engine.getFuelRate() / 100;
         }
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public double getMileage() {
+        return this.engine.getMileage();
+    }
+
+    public double getFuel() {
+        return this.fuel;
     }
 }

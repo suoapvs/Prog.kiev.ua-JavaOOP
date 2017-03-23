@@ -29,7 +29,7 @@ public class Climate {
         return this.temperature;
     }
 
-    public void setTemperture(final int temperature) {
+    public void setTemperature(final int temperature) {
         this.temperature = temperature;
     }
 }

@@ -3,7 +3,7 @@ package com.yurii.salimov.lesson02.task02;
 import java.util.Date;
 
 /**
- * Проект "Students": сделать поиск по фамилии, сделать поиск по дате рождения,
+ * 2.2 Проект "Students": сделать поиск по фамилии, сделать поиск по дате рождения,
  * сделать ф-ю удаления студента из списка, предусмотреть выход за пределы списка.
  *
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)

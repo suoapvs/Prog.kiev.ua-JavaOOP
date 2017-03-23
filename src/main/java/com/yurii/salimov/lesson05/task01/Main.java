@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Модифицировать проект FindFiles так, чтобы программа искала в каталоге.
+ * 5.1 Модифицировать проект FindFiles так, чтобы программа искала в каталоге.
  *
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0

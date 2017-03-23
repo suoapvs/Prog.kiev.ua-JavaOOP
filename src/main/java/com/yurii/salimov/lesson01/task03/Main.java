@@ -2,7 +2,7 @@
 package com.yurii.salimov.lesson01.task03;
 
 /**
- * Написать класс «автомобиль», который должен
+ * 1.3 Написать класс «автомобиль», который должен
  * уметь заводится, глушить мотор, ехать и держать
  * необходимую скорость.
  *
@@ -12,7 +12,7 @@ package com.yurii.salimov.lesson01.task03;
 public class Main {
 
     public static void main(String[] args) {
-        final Car car = new Car("Lada 2101");
+        Car car = new Car("Lada 2101");
         System.out.println("Model: " + car.getModel());
         car.start();
         car.speed(250, 40);

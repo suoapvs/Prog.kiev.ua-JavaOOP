@@ -1,7 +1,7 @@
 package com.yurii.salimov.lesson06.task06;
 
 /**
- * 6. Написать программу копирования файла с выводом прогресса в % на консоль.
+ * 6.6 Написать программу копирования файла с выводом прогресса в % на консоль.
  *
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0

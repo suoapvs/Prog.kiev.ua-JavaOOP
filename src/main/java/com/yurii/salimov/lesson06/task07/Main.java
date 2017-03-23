@@ -3,7 +3,7 @@ package com.yurii.salimov.lesson06.task07;
 import java.math.BigInteger;
 
 /**
- * 7. Разобраться с методом fact (рекурсия).
+ * 6.7 Разобраться с методом fact (рекурсия).
  *
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0

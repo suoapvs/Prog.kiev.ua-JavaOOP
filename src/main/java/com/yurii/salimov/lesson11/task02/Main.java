@@ -3,7 +3,7 @@ package com.yurii.salimov.lesson11.task02;
 import java.net.URL;
 
 /**
- * 2. Скачать все HTML файлы, доступные по ссылкам в отдельный каталог.
+ * 11.2 Скачать все HTML файлы, доступные по ссылкам в отдельный каталог.
  *
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0

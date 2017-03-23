@@ -1,7 +1,7 @@
 package com.yurii.salimov.lesson10.task06;
 
 /**
- * 6. Реализовать методы HashMap: keySet, entrySet, containsValue etc.
+ * 10.6 Реализовать методы HashMap: keySet, entrySet, containsValue etc.
  *
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
