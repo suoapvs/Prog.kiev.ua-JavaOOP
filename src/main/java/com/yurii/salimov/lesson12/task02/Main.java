@@ -11,20 +11,15 @@ public class Main {
     public static void main(String[] args) {
         try {
             final Parameters parameters = Parameters.getInstance();
-            if (Server.getStatus(parameters.getLink()) == 0) {
-                System.out.println("Stress: START");
-                final Stress stress = new Stress(parameters);
-                stress.start();
-                Thread.sleep(parameters.getTimer());
-                System.out.println("Stress: INTERRUPT");
-                stress.interrupt();
-            } else {
-                System.err.println("WARNING: Server not responding: " + parameters.getLink());
-            }
+            System.out.println("Stress: START");
+            final Stress stress = new Stress(parameters);
+            stress.start();
+            Thread.sleep(parameters.getTimer());
+            System.out.println("Stress: INTERRUPT");
+            stress.interrupt();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         System.out.println("Stress: EXIT");
-        System.exit(0);
     }
 }
