@@ -150,38 +150,40 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public int indexOf(T object) {
+        int index = -1;
         if (object == null) {
             for (int i = 0; i < this.size; i++) {
                 if (this.elementData[i] == null) {
-                    return i;
+                    index = i;
                 }
             }
         } else {
-            for (int i = 0; i < size; i++) {
-                if (object.equals(elementData[i])) {
-                    return i;
+            for (int i = 0; i < this.size; i++) {
+                if (object.equals(this.elementData[i])) {
+                    index = i;
                 }
             }
         }
-        return -1;
+        return index;
     }
 
     @Override
     public int lastIndexOf(T object) {
+        int index = -1;
         if (object == null) {
             for (int i = this.size - 1; i >= 0; i--) {
                 if (this.elementData[i] == null) {
-                    return i;
+                    index = i;
                 }
             }
         } else {
             for (int i = this.size - 1; i >= 0; i--) {
                 if (object.equals(this.elementData[i])) {
-                    return i;
+                    index = i;
                 }
             }
         }
-        return -1;
+        return index;
     }
 
     @Override
