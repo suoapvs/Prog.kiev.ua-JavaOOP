@@ -1,8 +1,4 @@
-<h1>
-    <a href="https://prog.kiev.ua">
-        Prog.kiev.ua
-    </a>
-</h1>
+[![Prog.kiev.ua](logo.png)](https://prog.kiev.ua)
 
 <h3>Java OOP, Homework</h3>
 
