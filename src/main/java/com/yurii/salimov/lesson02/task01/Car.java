@@ -4,7 +4,7 @@ package com.yurii.salimov.lesson02.task01;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Car {
+public final class Car {
 
     private String name;
     private Engine engine;

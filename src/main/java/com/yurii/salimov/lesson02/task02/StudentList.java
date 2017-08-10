@@ -6,7 +6,7 @@ import java.util.Date;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class StudentList {
+public final class StudentList {
 
     private final static int DEFAULT_CAPACITY = 10;
 
@@ -38,11 +38,11 @@ public class StudentList {
         }
     }
 
-    public Student get(int index) {
+    public Student get(final int index) {
         return this.list[index];
     }
 
-    public String getNameAndSurname(int index) {
+    public String getNameAndSurname(final int index) {
         final Student student = get(index);
         return student.getName() + " " + student.getSurname();
     }
@@ -58,7 +58,7 @@ public class StudentList {
         return student;
     }
 
-    public Student findBySurname(String surname) {
+    public Student findBySurname(final String surname) {
         Student student = null;
         for (int i = 0; i < this.counter; i++) {
             if (this.list[i].getSurname().equalsIgnoreCase(surname)) {
@@ -69,7 +69,7 @@ public class StudentList {
         return student;
     }
 
-    public Student findByDate(Date birth) {
+    public Student findByDate(final Date birth) {
         Student student = null;
         for (int i = 0; i < this.counter; i++) {
             if (list[i].getBirth().equals(birth)) {

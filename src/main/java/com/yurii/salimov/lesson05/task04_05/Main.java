@@ -15,12 +15,13 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) {
-        String outDir = "c:\\dir1";
-        String inDir = "c:\\dir2";
+        final String outDir = "c:\\dir1";
+        final String inDir = "c:\\dir2";
+        final Copywriter copywriter = new Copywriter();
 
         try {
-            Files.copy(outDir, inDir);
-            Files.aboutFiles(inDir);
+            copywriter.copy(outDir, inDir);
+            copywriter.aboutFiles(inDir);
         } catch (IOException ex) {
             ex.getMessage();
         }

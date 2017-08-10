@@ -4,7 +4,7 @@ package com.yurii.salimov.lesson02.task01;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Climate {
+public final class Climate {
 
     private boolean on;
     private int temperature;

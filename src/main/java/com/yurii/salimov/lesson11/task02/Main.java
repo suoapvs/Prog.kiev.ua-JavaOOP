@@ -12,8 +12,8 @@ public class Main {
 
     public static void main(String args[]){
         try {
-            final URL url = new URL("someUrl");
-            final String dirPath = "dirName";
+            final URL url = new URL("http://www.ecoteh.com.ua");
+            final String dirPath = "c:/eco";
             new LoaderHTML(url, dirPath).saveAllPage();
         } catch (Exception ex) {
             ex.printStackTrace();

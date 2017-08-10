@@ -4,11 +4,11 @@ package com.yurii.salimov.lesson01.task01;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Circle {
+public final class Circle {
 
     private double radius;
 
-    public Circle(double radius) {
+    public Circle(final double radius) {
         this.radius = radius;
     }
 
@@ -20,7 +20,7 @@ public class Circle {
         return this.radius;
     }
 
-    public void setRadius(double radius) {
+    public void setRadius(final double radius) {
         this.radius = radius > 0 ? radius : 0;
     }
 }

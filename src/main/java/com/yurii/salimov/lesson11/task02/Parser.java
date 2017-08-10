@@ -58,7 +58,7 @@ public class Parser {
         return page.toString();
     }
 
-    private static List<URL> parseHtml(final String html) {
+    private List<URL> parseHtml(final String html) {
         final List<URL> list = new ArrayList<>();
         int positionStart;
         int positionEnd = 0;
@@ -69,9 +69,9 @@ public class Parser {
                 positionEnd = html.indexOf("\"", positionStart);
                 final String urlStr = html.substring(positionStart, positionEnd);
                 try {
-                    list.add(new URL(urlStr));
+                    list.add(new URL(this.url + urlStr));
                 } catch (MalformedURLException ex) {
-                    System.out.println(ex.getMessage());
+                    ex.printStackTrace();
                 }
             }
         } while (positionStart >= 0);

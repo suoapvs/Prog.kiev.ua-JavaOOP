@@ -4,13 +4,13 @@ package com.yurii.salimov.lesson02.task01;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Engine {
+public final class Engine {
 
     private double mileage;
     private boolean started;
     private double volume;
 
-    public Engine(double mileage, double volume) {
+    public Engine(final double mileage, final double volume) {
         this.mileage = mileage;
         this.volume = volume;
     }
@@ -33,8 +33,8 @@ public class Engine {
         return this.mileage;
     }
 
-    public void addMileage(double mileage) {
-        if (isStarted()) {
+    public void addMileage(final double mileage) {
+        if (mileage > 0 && isStarted()) {
             this.mileage += mileage;
         }
     }

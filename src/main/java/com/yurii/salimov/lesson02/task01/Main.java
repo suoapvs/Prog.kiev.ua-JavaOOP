@@ -20,7 +20,7 @@ public class Main {
         System.out.println(ferrari);
     }
 
-    private static void move(final Car car, int[] speeds, final int hours) {
+    private static void move(final Car car, final int[] speeds, final int hours) {
         car.turnOn();
         for (int speed : speeds) {
             car.start(speed, hours);

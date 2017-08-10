@@ -12,7 +12,7 @@ package com.yurii.salimov.lesson01.task03;
 public class Main {
 
     public static void main(String[] args) {
-        Car car = new Car("Lada 2101");
+        final Car car = new Car("Lada 2101");
         System.out.println("Model: " + car.getModel());
         car.start();
         car.speed(250, 40);

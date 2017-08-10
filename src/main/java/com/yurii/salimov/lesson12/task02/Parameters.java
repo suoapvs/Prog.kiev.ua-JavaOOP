@@ -14,10 +14,10 @@ public class Parameters {
     private boolean reconnect;
 
     private Parameters() {
-        this.link = "http://prog.kiev.ua";
-        this.connectNumber = 100000;
+        this.link = "https://www.olx.ua/uk/obyavlenie/besprovodnoy-naushnik-s-bluetooth-garnituroy-IDsNUCm.html";
+        this.connectNumber = 100;
         this.timer = 10000;
-        this.reconnect = true;
+        this.reconnect = false;
     }
 
     public static Parameters getInstance() {
