@@ -6,13 +6,13 @@ import java.util.Arrays;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Sorting {
+public final class Sorting {
 
     public enum Type {
         DEFAULT, BUBBLE, INSERTION, GNOME
     }
 
-    private Figure[] figures;
+    private final Figure[] figures;
 
     private Type sortingType;
 
@@ -51,42 +51,42 @@ public class Sorting {
     }
 
     private static void bubbleSort(final Figure[] list) {
-        Figure figure;
+        Figure temp;
         for (int i = 0; i < list.length; i++) {
             for (int j = i + 1; j < list.length; j++) {
                 if (list[j].getArea() < list[i].getArea()) {
-                    figure = list[i];
+                    temp = list[i];
                     list[i] = list[j];
-                    list[j] = figure;
+                    list[j] = temp;
                 }
             }
         }
     }
 
     private static void insertionSort(final Figure[] list) {
-        Figure figure;
+        Figure temp;
         int i;
         for (int j = 1; j < list.length; j++) {
-            figure = list[j];
+            temp = list[j];
             i = j - 1;
-            while (i >= 0 && list[i].getArea() > figure.getArea()) {
+            while (i >= 0 && list[i].getArea() > temp.getArea()) {
                 list[i + 1] = list[i];
                 i--;
             }
-            list[i + 1] = figure;
+            list[i + 1] = temp;
         }
     }
 
     private static void gnomeSort(final Figure[] list) {
         int j = 0;
-        Figure figure;
+        Figure temp;
         while (j < list.length) {
             if (j == 0 || list[j - 1].getArea() <= list[j].getArea()) {
                 j++;
             } else {
-                figure = list[j];
+                temp = list[j];
                 list[j] = list[j - 1];
-                list[j - 1] = figure;
+                list[j - 1] = temp;
                 j--;
             }
         }

@@ -4,13 +4,13 @@ package com.yurii.salimov.lesson04.task02;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Circle extends Figure {
+public final class Circle extends Figure {
 
     private static final String NAME = "Circle";
 
-    private double radius;
+    private final double radius;
 
-    public Circle(double radius) {
+    public Circle(final double radius) {
         this.radius = radius;
     }
 
@@ -28,11 +28,8 @@ public class Circle extends Figure {
         return this.radius;
     }
 
-    public void setRadius(double radius) {
-        this.radius = radius;
-    }
-
-    public static Circle combine(final Circle circle1, final Circle circle2) {
-        return new Circle(circle1.getRadius() + circle2.getRadius());
+    public static Circle combine(final Circle first, final Circle second) {
+        final double radius = first.getRadius() + second.getRadius();
+        return new Circle(radius);
     }
 }

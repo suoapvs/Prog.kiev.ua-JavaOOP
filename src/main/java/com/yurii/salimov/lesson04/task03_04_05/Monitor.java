@@ -7,10 +7,10 @@ import java.util.Arrays;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Monitor {
+public final class Monitor {
 
-    private String[] name;
-    private IFileEvent event;
+    private final String[] name;
+    private final IFileEvent event;
 
     public Monitor(final String name, final IFileEvent event) {
         this(new String[]{name}, event);
@@ -101,10 +101,6 @@ public class Monitor {
                 file.getName().length()
         );
         return typeFile.equals(type) || type == null;
-    }
-
-    public void setName(String[] name) {
-        this.name = name;
     }
 
     public String[] getName() {

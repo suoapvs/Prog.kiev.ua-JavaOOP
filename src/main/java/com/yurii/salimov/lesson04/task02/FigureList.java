@@ -4,7 +4,7 @@ package com.yurii.salimov.lesson04.task02;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class FigureList {
+public final class FigureList {
 
     private final static int DEFAULT_CAPACITY = 10;
 
@@ -15,11 +15,15 @@ public class FigureList {
         this(DEFAULT_CAPACITY);
     }
 
-    public FigureList(int capacity) {
-        this.list = new Figure[capacity];
+    public FigureList(final int capacity) {
+        if (capacity > 0) {
+            this.list = new Figure[capacity];
+        } else {
+            this.list = new Figure[DEFAULT_CAPACITY];
+        }
     }
 
-    public void add(Figure figure) {
+    public void add(final Figure figure) {
         checkList();
         this.list[this.counter++] = figure;
     }
@@ -42,7 +46,7 @@ public class FigureList {
         new Sorting(this.list, sortingType).sort();
     }
 
-    public Figure get(int index) {
+    public Figure get( final int index) {
         return this.list[index];
     }
 
@@ -60,7 +64,7 @@ public class FigureList {
         }
     }
 
-    private void resizeList(int newLength) {
+    private void resizeList( final int newLength) {
         final Figure[] list = new Figure[newLength];
         final int length = this.list.length < newLength ? this.list.length : newLength;
         System.arraycopy(this.list, 0, list, 0, length);

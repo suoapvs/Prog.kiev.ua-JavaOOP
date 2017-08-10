@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class FileEvent implements IFileEvent {
+public final class FileEvent implements IFileEvent {
 
     private final static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy  hh:mm:ss");
 

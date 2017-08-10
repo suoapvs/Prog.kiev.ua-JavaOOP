@@ -4,15 +4,15 @@ package com.yurii.salimov.lesson04.task02;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Triangle extends Figure {
+public final class Triangle extends Figure {
 
     private static final String NAME = "Triangle";
 
-    private double sideA;
-    private double sideB;
-    private double sideC;
+    private final double sideA;
+    private final double sideB;
+    private final double sideC;
 
-    public Triangle(double sideA, double sideB, double sideC) {
+    public Triangle(final double sideA, final double sideB, final double sideC) {
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;
@@ -39,31 +39,18 @@ public class Triangle extends Figure {
         return this.sideA;
     }
 
-    public void setSideA(double sideA) {
-        this.sideA = sideA;
-    }
-
     public double getSideB() {
         return this.sideB;
-    }
-
-    public void setSideB(double sideB) {
-        this.sideB = sideB;
     }
 
     public double getSideC() {
         return this.sideC;
     }
 
-    public void setSideC(double sideC) {
-        this.sideC = sideC;
-    }
-
-    public static Triangle combine(Triangle triangle1, Triangle triangle2) {
-        return new Triangle(
-                triangle1.getSideA() + triangle2.getSideA(),
-                triangle1.getSideB() + triangle2.getSideB(),
-                triangle1.getSideC() + triangle2.getSideC()
-        );
+    public static Triangle combine(final Triangle first, final Triangle second) {
+        final double sideA = first.getSideA() + second.getSideA();
+        final double sideB = first.getSideB() + second.getSideB();
+        final double sideC = first.getSideC() + second.getSideC();
+        return new Triangle(sideA, sideB, sideC);
     }
 }

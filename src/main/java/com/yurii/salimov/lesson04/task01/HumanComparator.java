@@ -6,17 +6,15 @@ import java.util.Comparator;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class HumanComparator implements Comparator {
+public final class HumanComparator implements Comparator<Human> {
 
     @Override
-    public int compare(Object obj1, Object obj2) {
-        final Human human1 = (Human) obj1;
-        final Human human2 = (Human) obj2;
-        return human1.getAge() - human2.getAge();
+    public int compare(final Human first, final Human second) {
+        return first.getAge() - second.getAge();
 
-        /*if (human1.getAge() < human2.getAge()) {
+        /*if (first.getAge() < second.getAge()) {
          return -1;
-         } else if (human1.getAge() > human2.getAge()) {
+         } else if (first.getAge() > second.getAge()) {
          return 1;
          } else {
          return 0;

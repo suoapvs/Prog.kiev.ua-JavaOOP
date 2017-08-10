@@ -8,5 +8,5 @@ import java.io.File;
  */
 public interface IFileEvent {
 
-    void onFileAdded(final File file);
+    void onFileAdded(File file);
 }
