@@ -15,15 +15,16 @@ import java.io.File;
 public class Main {
 
     public static void main(String[] args) {
-        Files fileSystem = new Files("c:");
-        File file = new File("List.txt");
+        final Serialization serialization = new Serialization();
+        final Files fileSystem = new Files("c:");
+        final File file = new File("List.txt");
 
         if (!file.exists() || !file.isFile() || file.length() == 0) {
-            Files file1 = new Files("file1", true);
-            Files file2 = new Files("file2", true);
+            final Files file1 = new Files("file1", true);
+            final Files file2 = new Files("file2", true);
 
-            Files dir1 = new Files("dir1", false);
-            Files dir2 = new Files("dir2", false);
+            final Files dir1 = new Files("dir1", false);
+            final Files dir2 = new Files("dir2", false);
 
             dir1.add(file1);
             dir2.add(file1);
@@ -38,10 +39,10 @@ public class Main {
             fileSystem.add(dir2);
             fileSystem.print();
 
-            Serialization.serialize(fileSystem, file);
+            serialization.serialize(fileSystem, file);
         } else {
-            fileSystem = (Files) Serialization.deserialize(file);
-            fileSystem.print();
+            final Files files = (Files) serialization.deserialize(file);
+            files.print();
         }
     }
 }

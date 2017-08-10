@@ -9,7 +9,7 @@ import java.util.Objects;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Files implements Serializable {
+public final class Files implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private String name;
@@ -17,16 +17,16 @@ public class Files implements Serializable {
     private List<Files> list = new ArrayList<>();
     private Files fileSystem;
 
-    public Files(String name) {
+    public Files(final String name) {
         this.name = name;
     }
 
-    public Files(String name, boolean isFile) {
+    public Files(final String name, final boolean isFile) {
         this(name);
         this.isFile = isFile;
     }
 
-    public void add(Files file) {
+    public void add(final Files file) {
         if (!this.isFile) {
             if (!find(file)) {
                 file.fileSystem = this;

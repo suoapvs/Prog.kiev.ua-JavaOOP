@@ -21,19 +21,21 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        final Serialization serialization = new Serialization();
         final File file = new File("List.txt");
         if (!file.exists() || !file.isFile() || file.length() == 0) {
             int number = 10;
-            final MySet<Human> humanList = createHumanSet(number) ;
-            humanList.print();
-            Serialization.serialize(humanList, file);
+            final MySet<Human> humans = createHumanSet(number) ;
+            humans.print();
+            serialization.serialize(humans, file);
         } else {
-            ((MySet) Serialization.deserialize(file)).print();
+            final MySet humans = (MySet) serialization.deserialize(file);
+            humans.print();
         }
     }
 
-    private static MySet<Human> createHumanSet(int number) {
-        MySet<Human> humanMySet = new MySet<>();
+    private static MySet<Human> createHumanSet(final int number) {
+        final MySet<Human> humanMySet = new MySet<>();
         final Scanner scanner = new Scanner(System.in);
         System.out.println("Enter data about " + number + " persons:");
         for (int i = 0; i < number; i++) {

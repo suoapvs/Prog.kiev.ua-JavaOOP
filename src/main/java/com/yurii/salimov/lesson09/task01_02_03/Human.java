@@ -6,7 +6,7 @@ import java.io.Serializable;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Human implements Cloneable, Serializable {
+public final class Human implements Cloneable, Serializable {
 
     private static final long serialVersionUID = 1L;
     private String name;
@@ -22,7 +22,10 @@ public class Human implements Cloneable, Serializable {
         this.weight = 70;
     }
 
-    public Human(String name, String surname, String birth, String sex) {
+    public Human(
+            final String name, final String surname,
+            final String birth, final String sex
+    ) {
         this();
         this.name = name;
         this.surname = surname;
@@ -38,18 +41,18 @@ public class Human implements Cloneable, Serializable {
     @Override
     public String toString() {
         return "Human{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", birth='" + birth + '\'' +
-                ", sex='" + sex + '\'' +
-                ", profession='" + profession + '\'' +
-                ", height=" + height +
-                ", weight=" + weight +
+                "name='" + this.name + '\'' +
+                ", surname='" + this.surname + '\'' +
+                ", birth='" + this.birth + '\'' +
+                ", sex='" + this.sex + '\'' +
+                ", profession='" + this.profession + '\'' +
+                ", height=" + this.height +
+                ", weight=" + this.weight +
                 '}';
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(final Object object) {
         if (this == object) {
             return true;
         }
@@ -83,7 +86,7 @@ public class Human implements Cloneable, Serializable {
         return this.name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -91,7 +94,7 @@ public class Human implements Cloneable, Serializable {
         return this.surname;
     }
 
-    public void setSurname(String surname) {
+    public void setSurname(final String surname) {
         this.surname = surname;
     }
 
@@ -99,7 +102,7 @@ public class Human implements Cloneable, Serializable {
         return this.birth;
     }
 
-    public void setBirth(String birth) {
+    public void setBirth(final String birth) {
         this.birth = birth;
     }
 
@@ -107,7 +110,7 @@ public class Human implements Cloneable, Serializable {
         return this.sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(final String sex) {
         this.sex = sex;
     }
 
@@ -115,7 +118,7 @@ public class Human implements Cloneable, Serializable {
         return this.profession;
     }
 
-    public void setProfession(String profession) {
+    public void setProfession(final String profession) {
         this.profession = profession;
     }
 
@@ -123,7 +126,7 @@ public class Human implements Cloneable, Serializable {
         return this.height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(final int height) {
         this.height = height;
     }
 
