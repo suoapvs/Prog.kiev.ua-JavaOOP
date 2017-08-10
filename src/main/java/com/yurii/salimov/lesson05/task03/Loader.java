@@ -7,7 +7,7 @@ import java.io.RandomAccessFile;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Loader {
+public final class Loader {
 
     private final String path;
     private String text;
@@ -22,7 +22,7 @@ public class Loader {
     }
 
     public String read() throws IOException {
-        try (final RandomAccessFile in = new RandomAccessFile(path, "r")) {
+        try (RandomAccessFile in = new RandomAccessFile(path, "r")) {
             byte[] buf = new byte[(int) in.length()];
             in.read(buf);
             this.text = new String(buf);
@@ -31,7 +31,7 @@ public class Loader {
     }
 
     public void write() throws IOException {
-        try (final RandomAccessFile out = new RandomAccessFile(path, "rw")) {
+        try (RandomAccessFile out = new RandomAccessFile(path, "rw")) {
             byte[] buf = text.getBytes();
             out.setLength(0);
             out.write(buf);

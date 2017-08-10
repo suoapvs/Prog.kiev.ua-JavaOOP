@@ -10,7 +10,7 @@ import java.io.IOException;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Loader {
+public final class Loader {
 
     private final String fileName;
     private String text;
@@ -25,9 +25,9 @@ public class Loader {
     }
 
     public String read() throws IOException {
-        try (final FileInputStream fis = new FileInputStream(this.fileName);
-             final BufferedInputStream bis = new BufferedInputStream(fis)) {
-            byte[] buf = new byte[bis.available()];
+        try (FileInputStream fis = new FileInputStream(this.fileName);
+             BufferedInputStream bis = new BufferedInputStream(fis)) {
+            final byte[] buf = new byte[bis.available()];
             bis.read(buf);
             this.text = new String(buf);
             return this.text;
@@ -35,9 +35,9 @@ public class Loader {
     }
 
     public void write() throws IOException {
-        try (final FileOutputStream fos = new FileOutputStream(this.fileName);
-             final BufferedOutputStream bos = new BufferedOutputStream(fos)) {
-            byte[] buf = this.text.getBytes();
+        try (FileOutputStream fos = new FileOutputStream(this.fileName);
+             BufferedOutputStream bos = new BufferedOutputStream(fos)) {
+            final byte[] buf = this.text.getBytes();
             bos.write(buf, 0, buf.length);
         }
     }

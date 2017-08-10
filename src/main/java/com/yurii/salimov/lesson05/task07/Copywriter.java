@@ -42,10 +42,10 @@ public class Copywriter {
     }
 
     private static void copy(final Vector vector, final String path) throws IOException {
-        try (final SequenceInputStream sis = new SequenceInputStream(vector.elements());
-             final FileOutputStream fos = new FileOutputStream(path + "\\" + "OUT.txt");
-             final BufferedOutputStream bos = new BufferedOutputStream(fos)) {
-            byte[] buf = new byte[BUF_SIZE];
+        try (SequenceInputStream sis = new SequenceInputStream(vector.elements());
+             FileOutputStream fos = new FileOutputStream(path + "\\" + "OUT.txt");
+             BufferedOutputStream bos = new BufferedOutputStream(fos)) {
+            final byte[] buf = new byte[BUF_SIZE];
             int size;
             do {
                 size = sis.read(buf, 0, buf.length);

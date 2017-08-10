@@ -7,9 +7,9 @@ import java.io.FilenameFilter;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class FileFilter implements FilenameFilter {
+public final class FileFilter implements FilenameFilter {
 
-    private String[] ends;
+    private final String[] ends;
 
     public FileFilter(final String[] ends) {
         this.ends = ends;
@@ -18,8 +18,8 @@ public class FileFilter implements FilenameFilter {
     @Override
     public boolean accept(final File dir, final String name) {
         boolean result = false;
-        for (String ex : this.ends) {
-            if (name.endsWith(ex)) {
+        for (String end : this.ends) {
+            if (name.endsWith(end)) {
                 result = true;
                 break;
             }

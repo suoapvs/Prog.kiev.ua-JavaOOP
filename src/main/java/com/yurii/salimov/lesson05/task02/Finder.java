@@ -20,7 +20,7 @@ public class Finder {
         recursionFindAndPrint(this.dirName);
     }
 
-    private void recursionFindAndPrint(String dirName) {
+    private void recursionFindAndPrint(final String dirName) {
         final File[] fileList = new File(dirName).listFiles();
         if (fileList != null) {
             for (File file : fileList) {

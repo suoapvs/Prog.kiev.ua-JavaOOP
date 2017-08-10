@@ -2,6 +2,7 @@ package com.yurii.salimov.lesson05.task01;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -19,18 +20,21 @@ public class Main {
         println(list);
     }
 
-    private static void findFiles(String srcPath, String[] ends, List<String> list) {
-        File dir = new File(srcPath);
-        File[] files = dir.listFiles(new FileFilter(ends));
-
+    private static void findFiles(
+            final String srcPath,
+            final String[] ends,
+            final List<String> list
+    ) {
+        final File dir = new File(srcPath);
+        final File[] files = dir.listFiles(new FileFilter(ends));
         for (File f : files) {
             list.add(srcPath + f.getName());
         }
     }
 
-    private static void println(List<String> list) {
-        for (String file : list) {
-            System.out.println(file);
+    private static void println(final Collection<String> collection) {
+        for (String value : collection) {
+            System.out.println(value);
         }
     }
 }

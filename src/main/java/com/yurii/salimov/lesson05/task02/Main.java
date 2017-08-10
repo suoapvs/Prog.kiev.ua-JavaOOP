@@ -10,6 +10,9 @@ package com.yurii.salimov.lesson05.task02;
 public class Main {
 
     public static void main(String[] args) {
-        new Finder("c:/", new CriterionImpl()).findAndPrint();
+        final String directory = "c:/";
+        final Criterion criterion = new CriterionImpl();
+        final Finder finder = new Finder(directory, criterion);
+        finder.findAndPrint();
     }
 }

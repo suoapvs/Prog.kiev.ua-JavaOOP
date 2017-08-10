@@ -8,5 +8,5 @@ import java.io.File;
  */
 public interface Criterion {
 
-    boolean check(final File file);
+    boolean check(File file);
 }
