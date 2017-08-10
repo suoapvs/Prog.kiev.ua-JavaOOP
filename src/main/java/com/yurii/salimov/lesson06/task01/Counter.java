@@ -4,12 +4,12 @@ package com.yurii.salimov.lesson06.task01;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Counter extends Thread {
+public final class Counter extends Thread {
 
-    private int rangeStart;
-    private int rangeEnd;
+    private final int rangeStart;
+    private final int rangeEnd;
 
-    public Counter(int rangeStart, int rangeEnd) {
+    public Counter(final int rangeStart, final int rangeEnd) {
         if (rangeStart < rangeEnd) {
             this.rangeStart = rangeStart;
             this.rangeEnd = rangeEnd;
@@ -26,11 +26,7 @@ public class Counter extends Thread {
                 System.out.print(i + " ");
             }
             System.out.println();
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                break;
-            }
+            sleep();
         }
     }
 
@@ -38,15 +34,15 @@ public class Counter extends Thread {
         return this.rangeStart;
     }
 
-    public void setRangeStart(int rangeStart) {
-        this.rangeStart = rangeStart;
-    }
-
     public int getRangeEnd() {
         return this.rangeEnd;
     }
 
-    public void setRangeEnd(int end) {
-        this.rangeEnd = end;
+    private void sleep() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex) {
+            System.out.println("Thread stop!");
+        }
     }
 }

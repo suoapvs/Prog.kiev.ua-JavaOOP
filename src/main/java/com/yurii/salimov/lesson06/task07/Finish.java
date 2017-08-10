@@ -6,7 +6,7 @@ import java.math.BigInteger;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Finish implements IFinish {
+public final class Finish implements IFinish {
 
     private BigInteger result = BigInteger.ONE;
 

@@ -6,14 +6,19 @@ import java.io.*;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-class CopyFile implements Runnable {
+final class CopyFile implements Runnable {
 
     private final File inFile;
     private final File outFile;
     private final IProgress progress;
     private int blockSize;
 
-    public CopyFile(String inFile, String outFile, IProgress progress, int blockSize) {
+    public CopyFile(
+            final String inFile,
+            String outFile,
+            final IProgress progress,
+            final int blockSize
+    ) {
         this.inFile = new File(inFile);
         this.outFile = new File(outFile);
         this.progress = progress;
@@ -30,8 +35,8 @@ class CopyFile implements Runnable {
     }
 
     private void copy() {
-        try (final FileInputStream fis = new FileInputStream(this.inFile);
-             final FileOutputStream fos = new FileOutputStream(this.outFile);) {
+        try (FileInputStream fis = new FileInputStream(this.inFile);
+             FileOutputStream fos = new FileOutputStream(this.outFile);) {
             byte[] buffer = new byte[this.blockSize];
             int size;
             while ((size = fis.read(buffer)) > 0) {

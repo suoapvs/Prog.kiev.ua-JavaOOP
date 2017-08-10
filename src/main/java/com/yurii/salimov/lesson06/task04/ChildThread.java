@@ -4,7 +4,7 @@ package com.yurii.salimov.lesson06.task04;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class ChildThread extends Thread {
+public final class ChildThread extends Thread {
 
     private static int count;
     private final int threadId;

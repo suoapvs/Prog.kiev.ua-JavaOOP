@@ -8,5 +8,5 @@ import java.math.BigInteger;
  */
 public interface IFinish {
 
-    void done(final BigInteger result);
+    void done(BigInteger result);
 }

@@ -8,7 +8,7 @@ import java.io.OutputStream;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Block implements Runnable {
+public final class Block implements Runnable {
 
     private final InputStream inStream;
     private final OutputStream outStream;
@@ -27,7 +27,7 @@ public class Block implements Runnable {
 
     private synchronized void copy() {
         try {
-            byte[] buffer = new byte[(int) (this.blockSize / 100)];
+            final byte[] buffer = new byte[(int) (this.blockSize / 100)];
             int size;
             while (((size = this.inStream.read(buffer)) > 0) && (size < this.blockSize)) {
                 this.outStream.write(buffer, 0, size);

@@ -4,13 +4,13 @@ package com.yurii.salimov.lesson06.task06;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Progress implements IProgress {
+public final class Progress implements IProgress {
 
-    private int progress;
-    private double percent;
+    private int progress = 0;
+    private double percent = 0;
 
     @Override
-    public void update(double percent) {
+    public void update(final double percent) {
         this.percent += percent;
         if ((int) this.percent > this.progress) {
             this.progress = (int) Math.round(this.percent);

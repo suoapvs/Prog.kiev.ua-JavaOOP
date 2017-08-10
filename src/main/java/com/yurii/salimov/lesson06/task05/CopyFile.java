@@ -6,11 +6,11 @@ import java.io.*;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class CopyFile implements Runnable {
+public final class CopyFile implements Runnable {
 
     private final File inFile;
     private final File outFile;
-    private int number;
+    private final int number;
 
     public CopyFile(final String inFile, final String outFile, final int number) {
         this.inFile = new File(inFile);

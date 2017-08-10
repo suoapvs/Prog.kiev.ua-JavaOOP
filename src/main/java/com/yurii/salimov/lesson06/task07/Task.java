@@ -6,7 +6,7 @@ import java.math.BigInteger;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Task implements Runnable {
+public final class Task implements Runnable {
 
     private final BigInteger start;
     private final BigInteger end;
@@ -22,11 +22,8 @@ public class Task implements Runnable {
         if (start.equals(this.end)) {
             return this.end;
         } else {
-            return start.multiply(
-                    fact(
-                            start.subtract(BigInteger.ONE)
-                    )
-            );
+            final BigInteger temp = fact(start.subtract(BigInteger.ONE));
+            return start.multiply(temp);
         }
     }
 

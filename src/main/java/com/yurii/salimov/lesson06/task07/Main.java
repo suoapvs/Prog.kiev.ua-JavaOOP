@@ -31,13 +31,12 @@ public class Main {
             if (end <= 0) {
                 end = 1;
             }
-            new Thread(
-                    new Task(
-                            BigInteger.valueOf(start),
-                            BigInteger.valueOf(end),
-                            finish
-                    )
-            ).start();
+            final Task task = new Task(
+                    BigInteger.valueOf(start),
+                    BigInteger.valueOf(end),
+                    finish
+            );
+            new Thread(task).start();
             start = end - 1;
         }
     }

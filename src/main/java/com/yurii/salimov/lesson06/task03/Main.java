@@ -1,6 +1,8 @@
 package com.yurii.salimov.lesson06.task03;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * 6.3 Создать 100 потоков, каждый их которых выведет на экран
@@ -13,7 +15,7 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            final ArrayList<Thread> threads = createThreads();
+            final Collection<Thread> threads = createThreads();
             Thread.sleep(5000);
             interruptThreads(threads);
         } catch (Exception ex) {
@@ -21,8 +23,8 @@ public class Main {
         }
     }
 
-    private static ArrayList<Thread> createThreads() {
-        final ArrayList<Thread> threads = new ArrayList<>();
+    private static Collection<Thread> createThreads() {
+        final List<Thread> threads = new ArrayList<>();
         Thread thread;
         for (int i = 0; i < 100; i++) {
             thread = new MyThread();
@@ -32,7 +34,7 @@ public class Main {
         return threads;
     }
 
-    private static void interruptThreads(final ArrayList<Thread> threads) {
+    private static void interruptThreads(final Collection<Thread> threads) {
         threads.stream().forEach(Thread::interrupt);
     }
 }

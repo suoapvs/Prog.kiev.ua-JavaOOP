@@ -4,7 +4,7 @@ package com.yurii.salimov.lesson06.task03;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class MyThread extends Thread {
+public final class MyThread extends Thread {
 
     private static int counter;
     private final int id;
@@ -17,15 +17,19 @@ public class MyThread extends Thread {
     public void run() {
         System.out.println("Thread № " + this.id);
         while (!isInterrupted()) {
-            try {
-                Thread.sleep(10000);
-            } catch (InterruptedException ex) {
-                return;
-            }
+            sleep();
         }
     }
 
     public int getThreadId() {
         return this.id;
+    }
+
+    private void sleep() {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException ex) {
+            System.out.println("Thread stop!");
+        }
     }
 }

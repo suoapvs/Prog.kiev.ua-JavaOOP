@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            Thread thread = new ParentThread();
+            final Thread thread = new ParentThread();
             thread.start();
             Thread.sleep(5000);
             thread.interrupt();
