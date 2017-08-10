@@ -4,7 +4,7 @@ package com.yurii.salimov.lesson08.task04;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class FileEvents implements IFileEvents {
+public final class FileEvents implements IFileEvents {
 
     @Override
     public void onFileAdded(final String path) {

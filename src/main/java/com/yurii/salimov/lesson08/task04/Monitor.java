@@ -14,11 +14,11 @@ public class Monitor {
     private final String path;
     private final int timeout;
     private final IFileEvents events;
-    private final ArrayList<String> prev = new ArrayList<>();
-    private final ArrayList<String> curr = new ArrayList<>();
+    private final List<String> prev = new ArrayList<>();
+    private final List<String> curr = new ArrayList<>();
     private final List<String> dateList = new ArrayList<>();
 
-    public Monitor(String path, final int timeout, final IFileEvents events) {
+    public Monitor(final String path, final int timeout, final IFileEvents events) {
         this.path = path;
         this.timeout = timeout;
         this.events = events;

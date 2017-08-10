@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class UniversalArray<T extends Number> {
+public final class UniversalArray<T extends Number> {
 
     private final T[] array;
 

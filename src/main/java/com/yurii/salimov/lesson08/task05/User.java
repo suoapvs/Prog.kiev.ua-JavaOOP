@@ -6,16 +6,16 @@ package com.yurii.salimov.lesson08.task05;
  */
 public class User {
 
-    private String firstName;
-    private String lastName;
+    private final String firstName;
+    private final String lastName;
 
-    public User(String firstName, String lastName) {
+    public User(final String firstName, final String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(final Object object) {
         if (object == null) {
             return false;
         }
@@ -26,8 +26,8 @@ public class User {
             return false;
         }
         final User user = (User) object;
-        return firstName != null ? firstName.equals(user.firstName) : user.firstName == null &&
-                (lastName != null ? lastName.equals(user.lastName) : user.lastName == null);
+        return this.firstName != null ? this.firstName.equals(user.firstName) : user.firstName == null &&
+                (this.lastName != null ? this.lastName.equals(user.lastName) : user.lastName == null);
 
     }
 
@@ -42,15 +42,7 @@ public class User {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getLastName() {
         return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 }

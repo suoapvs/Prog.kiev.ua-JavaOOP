@@ -6,14 +6,14 @@ import java.util.Collection;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class MyLinkedList<T> implements MyList<T> {
+public final class MyLinkedList<T> implements MyList<T> {
 
     private static class Entry<T> {
         T element;
         Entry<T> next;
         Entry<T> prev;
 
-        Entry(T element, Entry<T> next, Entry<T> prev) {
+        Entry(final T element, final Entry<T> next, final Entry<T> prev) {
             this.element = element;
             this.next = next;
             this.prev = prev;
@@ -29,14 +29,14 @@ public class MyLinkedList<T> implements MyList<T> {
         this.header.prev = header;
     }
 
-    public MyLinkedList(Collection<? extends T> objects) {
+    public MyLinkedList(final Collection<? extends T> objects) {
         this();
         addAll(objects);
     }
 
     @Override
-    public boolean add(T element) {
-        Entry<T> newEntry = new Entry<>(element, this.header, this.header.prev);
+    public boolean add(final T element) {
+        final Entry<T> newEntry = new Entry<>(element, this.header, this.header.prev);
         newEntry.prev.next = newEntry;
         newEntry.next.prev = newEntry;
         this.size++;
@@ -44,25 +44,23 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     @Override
-    public void add(int index, T object) {
+    public void add(final int index, final T object) {
         checkIndex(index);
-        Entry<T> entry = entry(index);
-        Entry<T> newEntry = new Entry<>(object, entry, entry.prev);
+        final Entry<T> entry = entry(index);
+        final Entry<T> newEntry = new Entry<>(object, entry, entry.prev);
         newEntry.prev.next = newEntry;
         newEntry.next.prev = newEntry;
         this.size++;
     }
 
     @Override
-    public boolean addAll(Collection<? extends T> objects) {
-        for (T object : objects) {
-            add(object);
-        }
+    public boolean addAll(final Collection<? extends T> objects) {
+        objects.forEach(this::add);
         return true;
     }
 
     @Override
-    public boolean addAll(int index, Collection<T> objects) {
+    public boolean addAll(final int index, final Collection<T> objects) {
         checkIndex(index);
         int i = index;
         for (T object : objects) {
@@ -72,24 +70,23 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     @Override
-    public T get(int index) {
+    public T get(final int index) {
         return entry(index).element;
     }
 
     @Override
-    public T set(int index, T object) {
+    public T set(final int index, final T object) {
         checkIndex(index);
-        T value = entry(index).element;
+        final T value = entry(index).element;
         entry(index).element = object;
         return value;
     }
 
     @Override
-    public T remove(int index) {
+    public T remove(final int index) {
         checkIndex(index);
-        //T value = entry(index).element;
-        Entry<T> entry = entry(index);
-        T value = entry.element;
+        final Entry<T> entry = entry(index);
+        final T value = entry.element;
         entry.prev.next = entry.next;
         entry.next.prev = entry.prev;
         entry.next = null;
@@ -99,8 +96,8 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     @Override
-    public boolean remove(T object) {
-        int index = indexOf(object);
+    public boolean remove(final T object) {
+        final int index = indexOf(object);
         remove(index);
         return true;
     }
@@ -112,7 +109,7 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     @Override
-    public boolean contains(T object) {
+    public boolean contains(final T object) {
         return indexOf(object) >= 0;
     }
 
@@ -127,7 +124,7 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     @Override
-    public int indexOf(T object) {
+    public int indexOf(final T object) {
         Entry<T> entry = this.header;
         for (int i = 0; i < this.size; i++) {
             entry = entry.next;
@@ -139,7 +136,7 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     @Override
-    public int lastIndexOf(T object) {
+    public int lastIndexOf(final T object) {
         Entry<T> entry = this.header.prev;
         for (int i = this.size - 1; i > 0; i--) {
             if (object.equals(entry.element)) {
@@ -151,7 +148,7 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(final Object object) {
         if (object == null) {
             return false;
         }
@@ -162,7 +159,7 @@ public class MyLinkedList<T> implements MyList<T> {
             return false;
         }
 
-        MyLinkedList<T> other = (MyLinkedList<T>) object;
+        final MyLinkedList<T> other = (MyLinkedList<T>) object;
         if (this.size != other.size) {
             return false;
         }
@@ -189,7 +186,7 @@ public class MyLinkedList<T> implements MyList<T> {
         return result;
     }
 
-    private Entry<T> entry(int index) throws IndexOutOfBoundsException {
+    private Entry<T> entry(final int index) throws IndexOutOfBoundsException {
         checkIndex(index);
         Entry<T> entry = this.header;
         if (index < (this.size >> 1)) {
@@ -204,7 +201,7 @@ public class MyLinkedList<T> implements MyList<T> {
         return entry;
     }
 
-    private void checkIndex(int index) throws IndexOutOfBoundsException {
+    private void checkIndex(final int index) throws IndexOutOfBoundsException {
         if (index < 0 || index > this.size) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + this.size);
         }

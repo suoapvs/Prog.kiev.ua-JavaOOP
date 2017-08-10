@@ -11,7 +11,6 @@ package com.yurii.salimov.lesson08.task02;
 public class Main {
 
     public static void main(String[] args) {
-
         final Integer[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
         final Conversion<Integer> list = new Conversion<>(numbers);
         list.remove(0, 2); // удаляем первые 2 элемент

@@ -7,7 +7,7 @@ import java.util.Collection;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class MyArrayList<T> implements MyList<T> {
+public final class MyArrayList<T> implements MyList<T> {
 
     private static final int DEFAULT_CAPACITY = 10;
 
@@ -19,7 +19,7 @@ public class MyArrayList<T> implements MyList<T> {
         this(DEFAULT_CAPACITY);
     }
 
-    public MyArrayList(int capacity) {
+    public MyArrayList(final int capacity) {
         if (capacity >= 0) {
             this.elementData = new Object[capacity];
         } else {
@@ -27,20 +27,20 @@ public class MyArrayList<T> implements MyList<T> {
         }
     }
 
-    public MyArrayList(Collection<? extends T> objects) {
+    public MyArrayList(final Collection<? extends T> objects) {
         this();
         addAll(objects);
     }
 
     @Override
-    public boolean add(T object) {
+    public boolean add(final T object) {
         ensureCapacity(this.size + 1);
         this.elementData[this.size++] = object;
         return true;
     }
 
     @Override
-    public void add(int index, T object) {
+    public void add(final int index, final T object) {
         checkIndex(index);
         ensureCapacity(this.size + 1);
         System.arraycopy(this.elementData, index, this.elementData, index + 1, this.size - index);
@@ -49,9 +49,9 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public boolean addAll(Collection<? extends T> objects) {
-        Object[] array = objects.toArray();
-        int arrayLength = array.length;
+    public boolean addAll(final Collection<? extends T> objects) {
+        final Object[] array = objects.toArray();
+        final int arrayLength = array.length;
         ensureCapacity(this.size + arrayLength);
         System.arraycopy(array, 0, this.elementData, this.size, arrayLength);
         this.size += arrayLength;
@@ -59,13 +59,13 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public boolean addAll(int index, Collection<T> objects) {
+    public boolean addAll(final int index, final Collection<T> objects) {
         checkIndex(index);
-        Object[] array = objects.toArray();
-        int arrayLength = array.length;
+        final Object[] array = objects.toArray();
+        final int arrayLength = array.length;
         ensureCapacity(size + arrayLength);
 
-        int numMoved = this.size - index;
+        final int numMoved = this.size - index;
         if (numMoved > 0) {
             System.arraycopy(this.elementData, index, this.elementData, index + arrayLength, numMoved);
         }
@@ -76,13 +76,13 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public T get(int index) {
+    public T get(final int index) {
         checkIndex(index);
         return (T) this.elementData[index];
     }
 
     @Override
-    public T set(int index, T object) {
+    public T set(final int index, final T object) {
         checkIndex(index);
         T value = (T) this.elementData[index];
         this.elementData[index] = object;
@@ -90,7 +90,7 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public T remove(int index) {
+    public T remove(final int index) {
         checkIndex(index);
         T value = (T) this.elementData[index];
         int numMoved = this.size - index - 1;
@@ -100,7 +100,7 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public boolean remove(T object) {
+    public boolean remove(final T object) {
         if (object == null) {
             for (int i = 0; i < this.size; i++) {
                 if (this.elementData[i] == null) {
@@ -128,7 +128,7 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public boolean contains(T object) {
+    public boolean contains(final T object) {
         return indexOf(object) >= 0;
     }
 
@@ -149,7 +149,7 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public int indexOf(T object) {
+    public int indexOf(final T object) {
         int index = -1;
         if (object == null) {
             for (int i = 0; i < this.size; i++) {
@@ -168,7 +168,7 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public int lastIndexOf(T object) {
+    public int lastIndexOf(final T object) {
         int index = -1;
         if (object == null) {
             for (int i = this.size - 1; i >= 0; i--) {
@@ -187,7 +187,7 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(final Object object) {
         if (object == null) {
             return false;
         }
@@ -214,7 +214,7 @@ public class MyArrayList<T> implements MyList<T> {
         return (Arrays.hashCode(this.elementData) + this.size);
     }
 
-    private void ensureCapacity(int minCapacity) throws IndexOutOfBoundsException {
+    private void ensureCapacity(final int minCapacity) throws IndexOutOfBoundsException {
         if (minCapacity > this.elementData.length) {
             Object[] oldData = new Object[this.size];
             System.arraycopy(this.elementData, 0, oldData, 0, this.size);
@@ -224,7 +224,7 @@ public class MyArrayList<T> implements MyList<T> {
         }
     }
 
-    private void checkIndex(int index) {
+    private void checkIndex(final int index) {
         if (index < 0 || index > this.size) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + this.size);
         }
