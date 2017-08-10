@@ -7,7 +7,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Account {
+public final class Account {
 
     private int money;
     private final Lock lock;
@@ -21,7 +21,7 @@ public class Account {
         return this.money;
     }
 
-    public void withdraw(int amount) {
+    public void withdraw(final int amount) {
         this.lock.lock();
         try {
             if (this.money >= amount) {

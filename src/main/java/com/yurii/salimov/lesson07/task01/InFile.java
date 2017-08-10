@@ -7,7 +7,7 @@ import java.io.RandomAccessFile;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class InFile {
+public final class InFile {
 
     private final String path;
 
@@ -16,7 +16,7 @@ public class InFile {
     }
 
     public synchronized void write(final String text) {
-        try (final RandomAccessFile out = new RandomAccessFile(this.path, "rw")) {
+        try (RandomAccessFile out = new RandomAccessFile(this.path, "rw")) {
             out.seek(out.length());
             out.write(text.getBytes());
         } catch (IOException ex) {

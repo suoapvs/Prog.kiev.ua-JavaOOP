@@ -4,7 +4,7 @@ package com.yurii.salimov.lesson07.task03;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Matrix extends Thread {
+public final class Matrix extends Thread {
 
     private final int[][] matrixA;
     private final int[][] matrixB;
@@ -34,7 +34,7 @@ public class Matrix extends Thread {
         showMatrix(this.matrixC);
     }
 
-    public void calculation(int i, int j) {
+    public void calculation(final int i, final int j) {
         this.matrixC[i][j] = 0;
         for (int k = 0; k < this.size; k++) {
             this.matrixC[i][j] += this.matrixA[i][k] * this.matrixA[k][j];

@@ -4,7 +4,7 @@ package com.yurii.salimov.lesson07.task03;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class MyThread implements Runnable {
+public final class MyThread implements Runnable {
 
     private final Matrix matrix;
     private final int indexI;
