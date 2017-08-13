@@ -12,11 +12,10 @@ import java.util.List;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class LoaderHTML {
+public final class LoaderHTML {
 
     private final URL url;
     private final String dirPath;
-
 
     public LoaderHTML(final URL url, final String dirPath) {
         this.url = url;
@@ -28,9 +27,9 @@ public class LoaderHTML {
     }
 
     public void savePage() {
-        String path = createDirectory(this.url, this.dirPath) + "/" + namePage(this.url) + ".html";
+        final String path = createDirectory(this.url, this.dirPath) + "/" + namePage(this.url) + ".html";
         try (FileWriter writer = new FileWriter(path)) {
-            String page = new Parser(this.url).getHtml();
+            final String page = new Parser(this.url).getHtml();
             writer.write(page);
             writer.flush();
         } catch (IOException ex) {
@@ -94,8 +93,8 @@ public class LoaderHTML {
     }
 
     private static String createDirectory(URL url, String mainDir) {
-        String path = mainDir + "/" + getName(url);
-        File dir = new File(path);
+        final String path = mainDir + "/" + getName(url);
+        final File dir = new File(path);
         if (!dir.exists()) {
             dir.mkdirs();
         }
@@ -103,7 +102,7 @@ public class LoaderHTML {
     }
 
     private static String getName(URL url) {
-        String name = url.toString();
+        final String name = url.toString();
         int start = name.indexOf("//");
         start = (start == -1) ? 0 : start + 2;
         int end = name.indexOf("/", start);

@@ -10,6 +10,8 @@ package com.yurii.salimov.lesson11.task03;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        new Server(80).start();
+        final int serverPort = 80;
+        final Server server = new Server(serverPort);
+        server.start();
     }
 }

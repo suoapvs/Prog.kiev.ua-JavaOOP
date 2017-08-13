@@ -13,7 +13,6 @@ import java.util.List;
 public class Main {
 
     public static void main(String args[]) throws IOException {
-
         final URL url = new URL("http://alexcoffee.com.ua");
         final Parser parser = new Parser(url);
         final String page = parser.getHtml();

@@ -8,12 +8,12 @@ import java.net.Socket;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Server extends Thread {
+public final class Server extends Thread {
 
     private static Integer numberRequest;
     private final int port;
 
-    public Server(int port) {
+    public Server(final int port) {
         numberRequest = 0;
         this.port = port;
     }
@@ -21,9 +21,9 @@ public class Server extends Thread {
     @Override
     public void run() {
         while (!isInterrupted()) {
-            try (final ServerSocket server = new ServerSocket(this.port);
-                 final Socket socket = server.accept();
-                 final OutputStream output = socket.getOutputStream()) {
+            try (ServerSocket server = new ServerSocket(this.port);
+                 Socket socket = server.accept();
+                 OutputStream output = socket.getOutputStream()) {
                 output.write(getInfo().getBytes());
             } catch (Exception ex) {
                 ex.printStackTrace();

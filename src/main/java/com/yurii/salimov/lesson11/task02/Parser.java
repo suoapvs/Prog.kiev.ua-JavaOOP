@@ -11,7 +11,7 @@ import java.util.List;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Parser {
+public final class Parser {
 
     private final URL url;
     private String html;
@@ -43,7 +43,7 @@ public class Parser {
         final StringBuilder page = new StringBuilder();
         try {
             final HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            try (final InputStream stream = connection.getInputStream()) {
+            try (InputStream stream = connection.getInputStream()) {
                 byte[] buffer = new byte[5000];
                 int size;
                 while ((size = stream.read(buffer)) >= 0) {
