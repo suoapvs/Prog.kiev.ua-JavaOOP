@@ -22,6 +22,5 @@ public class Main {
         System.out.println("Enter text for translation:");
         final String text = scanner.nextLine();
         System.out.println(translator.translate(text));
-
     }
 }

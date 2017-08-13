@@ -1,23 +1,19 @@
 package com.yurii.salimov.lesson10.task01_02;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Translator {
+public final class Translator {
 
     private final Scanner scanner = new Scanner(System.in);
     private String nameBase;
-    private HashMap<String, String> base;
+    private Map<String, String> base;
 
     public Translator() {
         this("base.txt", new HashMap<>());
@@ -35,8 +31,8 @@ public class Translator {
     public void loadBase(String fileBase) {
         final File file = new File(fileBase);
         if (file.exists() && file.isFile() && file.length() > 0) {
-            try (final ObjectInputStream input = new ObjectInputStream(new FileInputStream(file))) {
-                this.base = (HashMap<String, String>) input.readObject();
+            try (ObjectInputStream input = new ObjectInputStream(new FileInputStream(file))) {
+                this.base = (Map<String, String>) input.readObject();
             } catch (ClassNotFoundException | IOException ex) {
                 ex.printStackTrace();
             }
@@ -98,19 +94,11 @@ public class Translator {
         }
     }
 
-    public void setNameBase(String nameBase) {
-        this.nameBase = nameBase;
-    }
-
     public String getNameBase() {
         return this.nameBase;
     }
 
-    public void setBase(HashMap<String, String> base) {
-        this.base = base;
-    }
-
-    public HashMap<String, String> getBase() {
+    public Map<String, String> getBase() {
         return this.base;
     }
 }

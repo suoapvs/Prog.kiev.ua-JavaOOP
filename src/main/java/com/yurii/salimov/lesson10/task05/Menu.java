@@ -8,22 +8,23 @@ import java.util.Scanner;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Menu {
+public final class Menu {
 
-    private Database<Long, Human> database;
+    private Database<String, Human> database;
     private String databaseName;
     private final Scanner scanner = new Scanner(System.in);
 
-    public Menu(Database<Long, Human> base) {
+    public Menu(final Database<String, Human> base) {
         this.database = base;
         this.databaseName = "dateBase.txt";
     }
 
-    public Menu(String databaseName) {
+    public Menu(final String databaseName) {
         try {
             this.databaseName = databaseName;
             File dataFile = new File(databaseName);
-            this.database = (Database<Long, Human>) Serialization.deserialize(dataFile);
+            final Serialization serialization = new Serialization();
+            this.database = (Database<String, Human>) serialization.deserialize(dataFile);
         } catch (IOException | ClassNotFoundException ex) {
             System.out.println("Database is absent!");
             this.database = new Database();
@@ -80,28 +81,28 @@ public class Menu {
     }
 
     private void delete() {
-        long phone = inPhoneNumber();
-        if (phone == -1) {
+        final String phone = inPhoneNumber();
+        if (phone == null || phone.equals("")) {
             System.out.println("Incorrect data input!");
-            return;
+        } else {
+            this.database.delete(phone);
         }
-        this.database.delete(phone);
     }
 
     private void find() {
-        long phone = inPhoneNumber();
-        if (phone == -1) {
+        final String phone = inPhoneNumber();
+        if (phone == null || phone.equals("")) {
             System.out.println("Incorrect data input!");
-            return;
+        } else {
+            final Human human = this.database.get(phone);
+            System.out.println(human);
         }
-
-        Human human = this.database.get(phone);
-        System.out.println(human);
     }
 
     private void saveAndExit() {
         try {
-            Serialization.serialize(this.database, this.databaseName);
+            final Serialization serialization = new Serialization();
+            serialization.serialize(this.database, this.databaseName);
         } catch (IOException ex) {
             ex.printStackTrace();
         } finally {
@@ -109,25 +110,20 @@ public class Menu {
         }
     }
 
-    private long inPhoneNumber() {
-        try {
-            System.out.println("Enter phone: ");
-            String value = this.scanner.next();
-            return Long.parseLong(value);
-        } catch (Exception ex) {
-            return -1;
-        }
+    private String inPhoneNumber() {
+        System.out.println("Enter phone: ");
+        return this.scanner.next();
     }
 
-    public void setDatabase(Database<Long, Human> database) {
+    public void setDatabase(final Database<String, Human> database) {
         this.database = database;
     }
 
-    public Database<Long, Human> getDatabase() {
+    public Database<String, Human> getDatabase() {
         return this.database;
     }
 
-    public void setDatabaseName(String databaseName) {
+    public void setDatabaseName(final String databaseName) {
         this.databaseName = databaseName;
     }
 

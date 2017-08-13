@@ -8,21 +8,21 @@ import java.util.Map;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Database<K, V> implements Serializable {
+public final class Database<K, V> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private HashMap<K, V> map = new HashMap<>();
+    private final HashMap<K, V> map = new HashMap<>();
 
-    public void add(K key, V value) {
+    public void add(final K key, final V value) {
         this.map.put(key, value);
     }
 
-    public void delete(K key) {
+    public void delete(final K key) {
         this.map.remove(key);
     }
 
-    public V get(K key) {
+    public V get(final K key) {
         return this.map.get(key);
     }
 
