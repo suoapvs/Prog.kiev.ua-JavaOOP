@@ -10,7 +10,7 @@ import java.util.List;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Server {
+public final class Server {
 
     private final String filePath;
     private final String reportPath;
@@ -37,7 +37,7 @@ public class Server {
         Files.write(this.reportPath, sb);
     }
 
-    private int getStatusServer(String address) throws InterruptedException, IOException {
+    private int getStatusServer(final String address) throws InterruptedException, IOException {
         final Runtime runtime = Runtime.getRuntime();
         final Process process = runtime.exec("ping " + address);
         return process.waitFor();

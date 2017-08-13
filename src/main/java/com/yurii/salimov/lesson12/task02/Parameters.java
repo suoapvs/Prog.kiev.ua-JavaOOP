@@ -4,17 +4,17 @@ package com.yurii.salimov.lesson12.task02;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Parameters {
+public final class Parameters {
 
     private static Parameters parameters = new Parameters();
 
-    private String link;
-    private int connectNumber;
-    private long timer;
-    private boolean reconnect;
+    private final String link;
+    private final int connectNumber;
+    private final long timer;
+    private final boolean reconnect;
 
     private Parameters() {
-        this.link = "https://www.olx.ua/uk/obyavlenie/besprovodnoy-naushnik-s-bluetooth-garnituroy-IDsNUCm.html";
+        this.link = "https://SITE.com";
         this.connectNumber = 100;
         this.timer = 10000;
         this.reconnect = false;

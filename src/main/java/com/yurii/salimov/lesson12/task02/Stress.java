@@ -7,9 +7,9 @@ import java.util.List;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Stress extends Thread {
+public final class Stress extends Thread {
 
-    private Parameters parameters;
+    private final Parameters parameters;
 
     public Stress(final Parameters parameters) {
         this.parameters = parameters;
@@ -30,10 +30,6 @@ public class Stress extends Thread {
                 return;
             }
         }
-    }
-
-    public void setParameters(final Parameters parameters) {
-        this.parameters = parameters;
     }
 
     public Parameters getParameters() {

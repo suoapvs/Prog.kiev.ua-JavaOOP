@@ -12,18 +12,17 @@ import java.net.URL;
  */
 public abstract class Server {
 
-    public static int getStatus(String link) throws IOException, InterruptedException {
-        link = link.replace("https://", "").replace("http://", "");
+    public static int getStatus(final String link) throws IOException, InterruptedException {
+        String _link = link.replace("https://", "").replace("http://", "");
         Runtime runtime = Runtime.getRuntime();
-        Process process = runtime.exec("ping " + link);
-        int status = process.waitFor();
-        return status;
+        Process process = runtime.exec("ping " + _link);
+        return process.waitFor();
     }
 
-    public static void /*String*/ getPage(String link) throws IOException {
+    public static void /*String*/ getPage(final String link) throws IOException {
         //StringBuilder page = new StringBuilder();
-        URL url = new URL(link);
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        final URL url = new URL(link);
+        final HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         try (InputStreamReader is = new InputStreamReader(connection.getInputStream());
              BufferedReader br = new BufferedReader(is)) {
             char[] buffer = new char[1024];

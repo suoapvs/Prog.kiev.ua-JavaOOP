@@ -11,10 +11,11 @@ import java.io.IOException;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Files {
+public final class Files {
 
     public static void write(final String fileName, final Object obj) {
-        try (final BufferedWriter output = new BufferedWriter(new FileWriter(fileName))) {
+        try (FileWriter fileWriter = new FileWriter(fileName);
+                BufferedWriter output = new BufferedWriter(fileWriter)) {
             output.write(obj.toString());
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -23,7 +24,8 @@ public class Files {
 
     public static String read(final String fileName) throws FileNotFoundException {
         final StringBuilder sb = new StringBuilder();
-        try (final BufferedReader input = new BufferedReader(new FileReader(fileName))) {
+        try (FileReader fileReader = new FileReader(fileName);
+                BufferedReader input = new BufferedReader(fileReader)) {
             String str;
             while ((str = input.readLine()) != null) {
                 sb.append(str).append("\r\n");

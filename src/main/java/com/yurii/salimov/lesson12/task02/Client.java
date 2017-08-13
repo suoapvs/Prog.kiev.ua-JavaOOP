@@ -6,9 +6,9 @@ import java.io.IOException;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Client extends Thread {
+public final class Client extends Thread {
 
-    private Parameters parameters;
+    private final Parameters parameters;
 
     public Client(final Parameters parameters) {
         this.parameters = parameters;
@@ -30,10 +30,6 @@ public class Client extends Thread {
                 }
             }
         }
-    }
-
-    public void setParameters(final Parameters parameters) {
-        this.parameters = parameters;
     }
 
     public Parameters getParameters() {

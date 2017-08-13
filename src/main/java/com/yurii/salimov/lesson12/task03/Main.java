@@ -17,9 +17,9 @@ public class Main {
                 "Mojno ya poidu spat`?", "Eto SPARTA!", "=)",};
 
         for (int i = 0; i < 5; i++) {
-            new Thread(
-                    new StressClient("192.168.0.100", 5000, logins, messages)
-            ).start();
+            final StressClient stressClient = new StressClient("192.168.0.100", 5000, logins, messages);
+            final Thread thread = new Thread(stressClient);
+            thread.start();
         }
     }
 }
