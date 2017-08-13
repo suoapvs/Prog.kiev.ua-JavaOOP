@@ -22,9 +22,10 @@ public class Unique<T> {
     }
 
     public List<T> getNonDuplicateList() {
-        final Map<T, ?> map = new HashMap<>();
+        final Map<T, Object> map = new HashMap<>();
+        final Object emptyObject = new Object();
         for (T arr : this.array) {
-            map.put(arr, null);
+            map.put(arr, emptyObject);
         }
         return map.entrySet()
                 .stream().map(Map.Entry::getKey)

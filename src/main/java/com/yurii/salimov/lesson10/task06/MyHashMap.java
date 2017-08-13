@@ -4,19 +4,20 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class MyHashMap<K, V> implements MyMap<K, V> {
+public final class MyHashMap<K, V> implements MyMap<K, V> {
 
     public static class Entry<K, V> {
 
         private K key;
         private V value;
 
-        public Entry(K key, V value) {
+        public Entry(final K key, final V value) {
             this.key = key;
             this.value = value;
         }
@@ -29,7 +30,7 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
             return this.value;
         }
 
-        public void setValue(V value) {
+        public void setValue(final V value) {
             this.value = value;
         }
     }
@@ -37,7 +38,7 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
     private static final int DEFAULT_CAPACITY = 16;
     private List[] arr;
 
-    public MyHashMap(int capacity) {
+    public MyHashMap(final int capacity) {
         this.arr = new LinkedList[capacity];
     }
 
@@ -46,7 +47,7 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
     }
 
     @Override
-    public boolean containsValue(V value) {
+    public boolean containsValue(final V value) {
         List<Entry<K, V>> list;
         for (List ar : this.arr) {
             if (ar != null) {
@@ -63,42 +64,38 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
 
     @Override
     public Set<K> keySet() {
-        Set<K> set = new HashSet<>();
+        final Set<K> set = new HashSet<>();
         LinkedList<Entry<K, V>> list;
         for (List ar : this.arr) {
             if (ar != null) {
                 list = (LinkedList<Entry<K, V>>) ar;
-                for (Entry<K, V> entry : list) {
-                    set.add(entry.getKey());
-                }
+                set.addAll(list.stream().map(Entry::getKey).collect(Collectors.toList()));
             }
         }
         return set;
     }
 
     public Set<Entry<K, V>> entrySet() {
-        Set<Entry<K, V>> set = new HashSet<>();
+        final Set<Entry<K, V>> set = new HashSet<>();
         LinkedList<Entry<K, V>> list;
         for (List ar : this.arr) {
             if (ar != null) {
                 list = (LinkedList<Entry<K, V>>) ar;
-                for (Entry<K, V> ls : list) {
-                    set.add(ls);
-                }
+                set.addAll(list);
             }
         }
         return set;
     }
 
     @Override
-    public void put(K key, V value) {
-        Entry<K, V> entry = new Entry<>(key, value);
-        int hashCode = key.hashCode();
-        int index = Math.abs(hashCode % this.arr.length);
+    public void put(final K key, final V value) {
+        final Entry<K, V> entry = new Entry<>(key, value);
+        final int hashCode = key.hashCode();
+        final int index = Math.abs(hashCode % this.arr.length);
         if (this.arr[index] == null) {
             arr[index] = new LinkedList<>();
         }
-        List<Entry<K, V>> list = (LinkedList<Entry<K, V>>) arr[index];
+        final List<Entry<K, V>> list = (LinkedList<Entry<K, V>>) arr[index];
         for (Entry<K, V> ent : list) {
             if (ent.getKey().equals(entry.getKey())) {
                 ent.setValue(entry.getValue());
@@ -109,13 +106,13 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
     }
 
     @Override
-    public V get(K key) {
-        int hashCode = key.hashCode();
-        int index = Math.abs(hashCode % this.arr.length);
+    public V get(final K key) {
+        final int hashCode = key.hashCode();
+        final int index = Math.abs(hashCode % this.arr.length);
         if (this.arr[index] == null) {
             return null;
         }
-        LinkedList<Entry<K, V>> list = (LinkedList<Entry<K, V>>) this.arr[index];
+        final LinkedList<Entry<K, V>> list = (LinkedList<Entry<K, V>>) this.arr[index];
         for (Entry<K, V> entry : list) {
             if (entry.getKey().equals(key)) {
                 return entry.getValue();
@@ -125,7 +122,7 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
     }
 
     @Override
-    public boolean containsKey(K key) {
+    public boolean containsKey(final K key) {
         return get(key) != null;
     }
 
@@ -142,7 +139,7 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
         return size;
     }
 
-    public void setCapacity(int capacity) {
+    public void setCapacity(final int capacity) {
         this.arr = new LinkedList[capacity];
     }
 }
