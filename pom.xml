@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.salimov.yurii</groupId>
-    <artifactId>prog-kiev-ua</artifactId>
+    <artifactId>prog-kiev-ua-java-oop</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>Prog.kiev.ua Homework</name>
+    <name>Prog.kiev.ua, Java OOP</name>
 
     <build>
         <plugins>
