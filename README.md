@@ -3,6 +3,8 @@
 <h3>Java OOP, Homework</h3>
 
 [**<- Java Start**](https://github.com/YuriiSalimov/Prog.kiev.ua-JavaStart)
+|
+[**Java PRO ->**](https://github.com/YuriiSalimov/Prog.kiev.ua-JavaPRO)
 
 <ol>
 <li><strong>Основы ООП</strong>
@@ -384,5 +386,7 @@
 </ol>
 
 [**<- Java Start**](https://github.com/YuriiSalimov/Prog.kiev.ua-JavaStart)
+|
+[**Java PRO ->**](https://github.com/YuriiSalimov/Prog.kiev.ua-JavaPRO)
 
 [_**Yurii Salimov**_](https://www.linkedin.com/in/yurii-salimov)  ([yuriy.alex.salimov@gmail.com](mailto:yuriy.alex.salimov@gmail.com))
