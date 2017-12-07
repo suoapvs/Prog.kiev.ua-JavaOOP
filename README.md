@@ -389,4 +389,5 @@
 |
 [**Java PRO ->**](https://github.com/YuriiSalimov/Prog.kiev.ua-JavaPRO)
 
-[_**Yurii Salimov**_](https://www.linkedin.com/in/yurii-salimov)  ([yuriy.alex.salimov@gmail.com](mailto:yuriy.alex.salimov@gmail.com))
+[_**Yurii Salimov**_](https://www.linkedin.com/in/yurii-salimov)
+([yuriy.alex.salimov@gmail.com](mailto:yuriy.alex.salimov@gmail.com))
