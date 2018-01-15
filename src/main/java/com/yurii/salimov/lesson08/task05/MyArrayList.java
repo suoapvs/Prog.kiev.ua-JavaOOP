@@ -84,7 +84,7 @@ public final class MyArrayList<T> implements MyList<T> {
     @Override
     public T set(final int index, final T object) {
         checkIndex(index);
-        T value = (T) this.elementData[index];
+        final T value = (T) this.elementData[index];
         this.elementData[index] = object;
         return value;
     }
@@ -92,8 +92,8 @@ public final class MyArrayList<T> implements MyList<T> {
     @Override
     public T remove(final int index) {
         checkIndex(index);
-        T value = (T) this.elementData[index];
-        int numMoved = this.size - index - 1;
+        final T value = (T) this.elementData[index];
+        final int numMoved = this.size - index - 1;
         System.arraycopy(this.elementData, index + 1, this.elementData, index, numMoved);
         this.elementData[--this.size] = null;
         return value;
@@ -197,7 +197,7 @@ public final class MyArrayList<T> implements MyList<T> {
         if (this.getClass() != object.getClass()) {
             return false;
         }
-        MyArrayList other = (MyArrayList) object;
+        final MyArrayList other = (MyArrayList) object;
         if (this.size != other.size) {
             return false;
         }
@@ -216,7 +216,7 @@ public final class MyArrayList<T> implements MyList<T> {
 
     private void ensureCapacity(final int minCapacity) throws IndexOutOfBoundsException {
         if (minCapacity > this.elementData.length) {
-            Object[] oldData = new Object[this.size];
+            final Object[] oldData = new Object[this.size];
             System.arraycopy(this.elementData, 0, oldData, 0, this.size);
             int newCapacity = this.size * 3 / 2 + 1;
             this.elementData = new Object[newCapacity];
