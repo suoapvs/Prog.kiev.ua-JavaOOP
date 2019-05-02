@@ -37,7 +37,7 @@ public final class LoaderHTML {
         }
     }
 
-    public void saveAllPage() throws IOException {
+    public void saveAllPage() {
         saveAll(this.url, new ArrayList<>(), this.dirPath);
     }
 
@@ -59,24 +59,17 @@ public final class LoaderHTML {
         return name.substring(start, end);
     }
 
-    private static void saveAll(URL url, List<URL> listUrl, String mainDir) throws IOException {
+    private static void saveAll(URL url, List<URL> listUrl, String mainDir) {
         final List<URL> newListUrl = new Parser(url).getUrls();
         for (URL newUrl : newListUrl) {
             if (!listUrl.contains(newUrl) && getName(newUrl).equals(getName(url))) {
                 synchronized (listUrl) {
                     listUrl.add(newUrl);
                 }
-                final Thread thread = new Thread() {
-                    @Override
-                    public void run() {
-                        try {
-                            savePage(newUrl, mainDir);
-                            saveAll(newUrl, listUrl, mainDir);
-                        } catch (IOException ex) {
-                            ex.printStackTrace();
-                        }
-                    }
-                };
+                final Thread thread = new Thread(() -> {
+                    savePage(newUrl, mainDir);
+                    saveAll(newUrl, listUrl, mainDir);
+                });
                 thread.start();
             }
         }
