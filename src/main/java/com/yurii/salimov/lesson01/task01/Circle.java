@@ -30,7 +30,7 @@ public final class Circle {
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(final Object object) {
         if (this == object) {
             return true;
         }
@@ -46,5 +46,9 @@ public final class Circle {
         int result = 15;
         result = 31 * result + Double.hashCode(this.radius);
         return result;
+    }
+
+    public static Circle combine(final Circle first, final Circle second) {
+        return new Circle(first.radius + second.radius);
     }
 }
