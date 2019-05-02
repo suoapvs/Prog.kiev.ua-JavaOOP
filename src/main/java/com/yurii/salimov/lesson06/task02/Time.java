@@ -23,7 +23,7 @@ public final class Time extends Thread {
         try {
             Thread.sleep(10000);
         } catch (InterruptedException ex) {
-            System.out.println("Thread stop!");
+            interrupt();
         }
     }
 }

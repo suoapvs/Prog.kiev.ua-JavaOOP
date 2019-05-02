@@ -14,7 +14,7 @@ public interface MyList<T> {
 
     boolean addAll(Collection<? extends T> objects);
 
-    boolean addAll(int index, Collection<T> objects);
+    boolean addAll(int index, Collection<? extends T> objects);
 
     T get(int index);
 

@@ -15,7 +15,7 @@ public class Main {
         try {
             final Thread thread = new ParentThread();
             thread.start();
-            Thread.sleep(5000);
+            Thread.sleep(3000);
             thread.interrupt();
         } catch (Exception ex) {
             ex.getMessage();

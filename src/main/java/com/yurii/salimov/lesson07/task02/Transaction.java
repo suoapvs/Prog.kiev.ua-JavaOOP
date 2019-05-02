@@ -20,6 +20,7 @@ public final class Transaction extends Thread {
         this.account.withdraw(this.amount);
     }
 
+    // эмитируем бурную деятельность...
     private void sleep() {
         try {
             Thread.sleep(System.currentTimeMillis() % 50);

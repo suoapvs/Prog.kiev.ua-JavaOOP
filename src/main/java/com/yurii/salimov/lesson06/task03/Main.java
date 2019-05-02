@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
         try {
             final Collection<Thread> threads = createThreads();
-            Thread.sleep(5000);
+            Thread.sleep(3000);
             interruptThreads(threads);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -24,7 +24,7 @@ public class Main {
     }
 
     private static Collection<Thread> createThreads() {
-        final List<Thread> threads = new ArrayList<>();
+        final Collection<Thread> threads = new ArrayList<>();
         Thread thread;
         for (int i = 0; i < 100; i++) {
             thread = new MyThread();
@@ -35,6 +35,6 @@ public class Main {
     }
 
     private static void interruptThreads(final Collection<Thread> threads) {
-        threads.stream().forEach(Thread::interrupt);
+        threads.forEach(Thread::interrupt);
     }
 }

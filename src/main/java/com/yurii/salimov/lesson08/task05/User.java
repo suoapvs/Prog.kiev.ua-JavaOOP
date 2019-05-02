@@ -1,10 +1,12 @@
 package com.yurii.salimov.lesson08.task05;
 
+import java.util.Objects;
+
 /**
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class User {
+public final class User {
 
     private final String firstName;
     private final String lastName;
@@ -15,26 +17,32 @@ public class User {
     }
 
     @Override
+    public String toString() {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(final Object object) {
-        if (object == null) {
-            return false;
-        }
         if (this == object) {
             return true;
         }
-        if (getClass() != object.getClass()) {
+        if ((object == null) || (getClass() != object.getClass())) {
             return false;
         }
-        final User user = (User) object;
-        return this.firstName != null ? this.firstName.equals(user.firstName) : user.firstName == null &&
-                (this.lastName != null ? this.lastName.equals(user.lastName) : user.lastName == null);
+        final User that = (User) object;
+        return Objects.equals(this.firstName, that.firstName) &&
+                Objects.equals(this.lastName, that.lastName);
 
     }
 
     @Override
     public int hashCode() {
-        int result = firstName != null ? firstName.hashCode() : 0;
-        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        int result = 32;
+        result = 31 * result + Objects.hashCode(this.firstName);
+        result = 31 * result + Objects.hashCode(this.lastName);
         return result;
     }
 

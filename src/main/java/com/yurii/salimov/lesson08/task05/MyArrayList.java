@@ -59,7 +59,7 @@ public final class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public boolean addAll(final int index, final Collection<T> objects) {
+    public boolean addAll(final int index, final Collection<? extends T> objects) {
         checkIndex(index);
         final Object[] array = objects.toArray();
         final int arrayLength = array.length;

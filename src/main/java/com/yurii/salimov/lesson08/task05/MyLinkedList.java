@@ -60,7 +60,7 @@ public final class MyLinkedList<T> implements MyList<T> {
     }
 
     @Override
-    public boolean addAll(final int index, final Collection<T> objects) {
+    public boolean addAll(final int index, final Collection<? extends T> objects) {
         checkIndex(index);
         int i = index;
         for (T object : objects) {

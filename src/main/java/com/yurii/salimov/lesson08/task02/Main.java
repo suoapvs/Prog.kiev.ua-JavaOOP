@@ -1,5 +1,8 @@
 package com.yurii.salimov.lesson08.task02;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 8.2 Написать метод, который создаст список, положит в него
  * 10 элементов, затем удалит первые два и последний, а
@@ -11,19 +14,17 @@ package com.yurii.salimov.lesson08.task02;
 public class Main {
 
     public static void main(String[] args) {
-        final Integer[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
-        final Conversion<Integer> list = new Conversion<>(numbers);
-        list.remove(0, 2); // удаляем первые 2 элемент
-        list.remove(list.getList().size() - 1); // удаляем последний элемент
-        System.out.println(list);
+        task();
+    }
 
-        // заполним лист поэлементно
-        list.clear();
+    private static void task() {
+        final List<String> strings = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            list.add(i);
+            strings.add(Integer.toString(i));
         }
-        list.remove(0, 2); // удаляем первые 2 элемент
-        list.remove(list.getList().size() - 1); // удаляем последний элемент
-        System.out.println(list);
+        strings.remove(0);
+        strings.remove(0);
+        strings.remove(strings.size() - 1);
+        System.out.println(strings);
     }
 }

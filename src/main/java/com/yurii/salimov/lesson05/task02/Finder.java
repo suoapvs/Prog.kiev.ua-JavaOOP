@@ -6,7 +6,7 @@ import java.io.File;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Finder {
+public final class Finder {
 
     private final String dirName;
     private final Criterion criterion;

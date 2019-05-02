@@ -10,28 +10,28 @@ package com.yurii.salimov.lesson07.task02;
 public class Main {
 
     public static void main(String[] args) {
-        Account acc = new Account(1000);
-        Transaction[] transactions = {
-                new Transaction(acc, 200),
-                new Transaction(acc, 100),
-                new Transaction(acc, 150),
-                new Transaction(acc, 50),
-                new Transaction(acc, 100),
-                new Transaction(acc, 400)
+        final Account account = new Account(1000);
+        final Transaction[] transactions = {
+                new Transaction(account, 200),
+                new Transaction(account, 100),
+                new Transaction(account, 150),
+                new Transaction(account, 50),
+                new Transaction(account, 100),
+                new Transaction(account, 400)
         };
 
-        for (Transaction t : transactions) {
-            t.start();
+        for (Transaction transaction : transactions) {
+            transaction.start();
         }
 
-        for (Transaction t : transactions) {
+        for (Transaction transaction : transactions) {
             try {
-                t.join();
+                transaction.join();
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
         }
 
-        System.out.println("Total:" + acc.get());
+        System.out.println("Total:" + account.get());
     }
 }

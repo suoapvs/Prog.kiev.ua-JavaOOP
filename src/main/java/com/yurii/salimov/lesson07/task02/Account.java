@@ -12,7 +12,7 @@ public final class Account {
     private int money;
     private final Lock lock;
 
-    public Account(int money) {
+    public Account(final int money) {
         this.money = money;
         this.lock = new ReentrantLock();
     }
@@ -23,12 +23,9 @@ public final class Account {
 
     public void withdraw(final int amount) {
         this.lock.lock();
-        try {
-            if (this.money >= amount) {
-                this.money -= amount;
-            }
-        } finally {
-            this.lock.unlock();
+        if (this.money >= amount) {
+            this.money -= amount;
         }
+        this.lock.unlock();
     }
 }

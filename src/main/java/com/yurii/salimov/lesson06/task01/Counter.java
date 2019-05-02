@@ -21,28 +21,24 @@ public final class Counter extends Thread {
 
     @Override
     public void run() {
-        while (!isInterrupted()) {
+        while (true) {
             for (int i = this.rangeStart; i <= this.rangeEnd; i++) {
                 System.out.print(i + " ");
+                sleep();
+                if (isInterrupted()) {
+                    return;
+                }
             }
             System.out.println();
-            sleep();
         }
     }
 
-    public int getRangeStart() {
-        return this.rangeStart;
-    }
-
-    public int getRangeEnd() {
-        return this.rangeEnd;
-    }
-
+    // эмитируем бурную деятельность...
     private void sleep() {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(100);
         } catch (InterruptedException ex) {
-            System.out.println("Thread stop!");
+            interrupt();
         }
     }
 }

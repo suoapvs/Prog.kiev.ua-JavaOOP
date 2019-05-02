@@ -6,22 +6,11 @@ package com.yurii.salimov.lesson06.task04;
  */
 public final class ChildThread extends Thread {
 
-    private static int count;
-    private final int threadId;
-
-    public ChildThread() {
-        threadId = count++;
-    }
-
     @Override
     public void run() {
-        System.out.println("Thread № " + this.threadId + ", ID: " + getId());
+        System.out.println("Thread № " + getId());
         while (!isInterrupted()) {
             Thread.yield();
         }
-    }
-
-    public int getThreadId() {
-        return threadId;
     }
 }
