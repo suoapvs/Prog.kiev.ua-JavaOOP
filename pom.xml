@@ -6,7 +6,7 @@
 
     <groupId>com.salimov.yurii</groupId>
     <artifactId>prog-kiev-ua-java-oop</artifactId>
-    <version>1.0</version>
+    <version>1.1.20190502</version>
     <packaging>jar</packaging>
 
     <name>Prog.kiev.ua, Java OOP</name>
@@ -29,5 +29,3 @@
         </plugins>
     </build>
 </project>
-
-<!-- Yuriy Salimov (yuriy.alex.salimov@gmail.com) -->
