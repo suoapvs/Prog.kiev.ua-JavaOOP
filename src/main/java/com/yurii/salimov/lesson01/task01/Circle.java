@@ -6,21 +6,45 @@ package com.yurii.salimov.lesson01.task01;
  */
 public final class Circle {
 
-    private double radius;
+    public static final String NAME = "Circle";
+
+    private final double radius;
 
     public Circle(final double radius) {
         this.radius = radius;
-    }
-
-    public double getArea() {
-        return Math.PI * this.radius * this.radius;
     }
 
     public double getRadius() {
         return this.radius;
     }
 
-    public void setRadius(final double radius) {
-        this.radius = radius > 0 ? radius : 0;
+    public double getArea() {
+        return Math.PI * this.radius * this.radius;
+    }
+
+    @Override
+    public String toString() {
+        return NAME + "{" +
+                "radius=" + radius +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if ((object == null) || (getClass() != object.getClass())) {
+            return false;
+        }
+        final Circle that = (Circle) object;
+        return (this.radius == that.radius);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 15;
+        result = 31 * result + Double.hashCode(this.radius);
+        return result;
     }
 }
