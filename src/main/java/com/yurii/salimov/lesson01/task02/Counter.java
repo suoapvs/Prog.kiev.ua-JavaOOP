@@ -16,6 +16,10 @@ public final class Counter {
         return count;
     }
 
+    public static void reset() {
+        count = 0;
+    }
+
     private static void increment() {
         count++;
     }
