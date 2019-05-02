@@ -37,7 +37,7 @@ public final class Rectangle {
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(final Object object) {
         if (this == object) {
             return true;
         }
@@ -45,8 +45,8 @@ public final class Rectangle {
             return false;
         }
         final Rectangle that = (Rectangle) object;
-        return this.width == that.width &&
-                this.height == that.height;
+        return (this.width == that.width) &&
+                (this.height == that.height);
     }
 
     @Override
