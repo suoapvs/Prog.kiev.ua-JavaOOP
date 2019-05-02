@@ -29,7 +29,9 @@ public final class Climate {
         return this.temperature;
     }
 
-    public void setTemperature(final int temperature) {
-        this.temperature = temperature;
+    public void updateTemperature(final int temperature) {
+        if(isOn()) {
+            this.temperature = temperature;
+        }
     }
 }

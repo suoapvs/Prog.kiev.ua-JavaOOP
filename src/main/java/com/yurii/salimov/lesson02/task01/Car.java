@@ -6,19 +6,19 @@ package com.yurii.salimov.lesson02.task01;
  */
 public final class Car {
 
-    private String name;
-    private Engine engine;
-    private Climate climate = new Climate();
+    private final String name;
+    private final Engine engine;
+    private final Climate climate;
     private double fuel;
 
     public Car(final String name) {
-        this.name = name;
-        this.engine = new Engine(0, 1.0);
+        this(name, 0, 1);
     }
 
     public Car(final String name, final double mileage, final double volume) {
         this.name = name;
         this.engine = new Engine(mileage, volume);
+        this.climate = new Climate();
     }
 
     @Override
@@ -29,7 +29,7 @@ public final class Car {
     public void turnOn() {
         this.engine.turnOn();
         this.climate.turnOn();
-        this.climate.setTemperature(21);
+        this.climate.updateTemperature(21);
     }
 
     public void turnOff() {

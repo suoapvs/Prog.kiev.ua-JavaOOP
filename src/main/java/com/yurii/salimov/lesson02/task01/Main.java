@@ -11,7 +11,7 @@ package com.yurii.salimov.lesson02.task01;
 public class Main {
 
     public static void main(String[] args) {
-        final int[] speeds = new int[]{20, 60, 100};
+        final int[] speeds = {20, 60, 100};
         final Car bmw = new Car("BMW");
         final Car ferrari = new Car("Ferrari", 20000, 5.0);
         move(bmw, speeds, 1);

@@ -8,7 +8,7 @@ public final class Engine {
 
     private double mileage;
     private boolean started;
-    private double volume;
+    private final double volume;
 
     public Engine(final double mileage, final double volume) {
         this.mileage = mileage;
@@ -16,15 +16,17 @@ public final class Engine {
     }
 
     public double getFuelRate() {
-        int rate = 0;
-        if ((this.volume >= 1.0) && (this.volume <= 2.0)) {
+        final int rate;
+        if (this.volume <= 2) {
             rate = 10;
-        } else if ((this.volume > 2.0) && (this.volume <= 3.0)) {
+        } else if (this.volume <= 3) {
             rate = 15;
-        } else if ((this.volume > 3.0) && (this.volume <= 4.0)) {
+        } else if (this.volume <= 4) {
             rate = 20;
-        } else if ((this.volume > 4.0) && (this.volume <= 5.0)) {
+        } else if (this.volume <= 5) {
             rate = 25;
+        } else {
+            rate = 5;
         }
         return rate;
     }
