@@ -117,14 +117,16 @@ final class TriangleFigure extends AbstractFigure implements Triangle {
      */
     @Override
     public boolean equals(final Object object) {
-        boolean result = super.equals(object);
-        if (result) {
-            final TriangleFigure other = (TriangleFigure) object;
-            result = (this.sideA == other.sideA) &&
-                    (this.sideB == other.sideB) &&
-                    (this.sideC == other.sideC);
+        if (this == object) {
+            return true;
         }
-        return result;
+        if ((object == null) || (getClass() != object.getClass())) {
+            return false;
+        }
+        final TriangleFigure that = (TriangleFigure) object;
+        return (this.sideA == that.sideA) &&
+                (this.sideB == that.sideB) &&
+                (this.sideC == that.sideC);
     }
 
     /**
@@ -136,12 +138,10 @@ final class TriangleFigure extends AbstractFigure implements Triangle {
      */
     @Override
     public int hashCode() {
-        long temp = Double.doubleToLongBits(this.sideA);
-        int result = (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(this.sideB);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(this.sideC);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        int result = 14;
+        result = 31 * result + Double.hashCode(this.sideA);
+        result = 31 * result + Double.hashCode(this.sideB);
+        result = 31 * result + Double.hashCode(this.sideC);
         return result;
     }
 
@@ -226,9 +226,7 @@ final class TriangleFigure extends AbstractFigure implements Triangle {
      */
     @Override
     public Point getPointA() {
-        final double abscissa = 0;
-        final double ordinate = 0;
-        return createPoint(abscissa, ordinate);
+        return createPoint(0, 0);
     }
 
     /**
@@ -239,9 +237,7 @@ final class TriangleFigure extends AbstractFigure implements Triangle {
      */
     @Override
     public Point getPointB() {
-        final double abscissa = 0;
-        final double ordinate = this.sideA;
-        return createPoint(abscissa, ordinate);
+        return createPoint(0, this.sideA);
     }
 
     /**
@@ -252,9 +248,10 @@ final class TriangleFigure extends AbstractFigure implements Triangle {
      */
     @Override
     public Point getPointC() {
-        final double abscissa = Math.abs(this.sideC * Math.cos(getAngleAlpha()));
-        final double ordinate = Math.abs(this.sideC * Math.cos(getAngleBeta()));
-        return createPoint(abscissa, ordinate);
+        return createPoint(
+                Math.abs(this.sideC * Math.cos(getAngleAlpha())),
+                Math.abs(this.sideC * Math.cos(getAngleBeta()))
+        );
     }
 
     /**
@@ -276,15 +273,12 @@ final class TriangleFigure extends AbstractFigure implements Triangle {
     public void draw() {
         final List<Point> points = getPoints();
         final PointAnalyzer pointAnalyzer = new PointAnalyzer();
-        final double maxAbscissa = pointAnalyzer.getMaxAbscissa(points);
-        final double maxOrdinate = pointAnalyzer.getMaxOrdinate(points);
         final PointBuilder builder = Point.getBuilder();
         Point point;
-        for (int abscissa = 0; abscissa < maxAbscissa; abscissa++) {
+        for (double abscissa = 0; abscissa < pointAnalyzer.getMaxAbscissa(points); abscissa++) {
             builder.addAbscissa(abscissa);
-            for (int ordinate = 0; ordinate < maxOrdinate; ordinate++) {
-                builder.addOrdinate(ordinate);
-                point = builder.build();
+            for (double ordinate = 0; ordinate < pointAnalyzer.getMaxOrdinate(points); ordinate++) {
+                point = builder.addOrdinate(ordinate).build();
                 if (isPointInTriangle(point)) {
                     point.draw();
                 } else {
@@ -329,16 +323,17 @@ final class TriangleFigure extends AbstractFigure implements Triangle {
      * @return true if incoming point is in a triangle,
      * false otherwise.
      */
-    private boolean isPointInTriangle(Point point) {
+    private boolean isPointInTriangle(final Point point) {
         final boolean result;
         if (point != null) {
             final Point pointA = getPointA();
             final Point pointB = getPointB();
             final Point pointC = getPointC();
-            final double normalA = getNormal(pointB, pointC, point);
-            final double normalB = getNormal(getPointC(), pointA, point);
-            final double normalC = getNormal(pointA, pointB, point);
-            result = checkNormal(normalA, normalB, normalC);
+            result = checkNormal(
+                    getNormal(pointB, pointC, point),
+                    getNormal(pointC, pointA, point),
+                    getNormal(pointA, pointB, point)
+            );
         } else {
             result = false;
         }
@@ -354,8 +349,10 @@ final class TriangleFigure extends AbstractFigure implements Triangle {
      * @return the normal value.
      */
     private double getNormal(final Point pointA, final Point pointB, final Point pointToCheck) {
-        return (pointA.getAbscissa() - pointToCheck.getAbscissa()) * (pointB.getOrdinate() - pointA.getOrdinate()) -
-                (pointB.getAbscissa() - pointA.getAbscissa()) * (pointA.getOrdinate() - pointToCheck.getOrdinate());
+        return (pointA.getAbscissa() - pointToCheck.getAbscissa()) *
+                (pointB.getOrdinate() - pointA.getOrdinate()) -
+                (pointB.getAbscissa() - pointA.getAbscissa()) *
+                        (pointA.getOrdinate() - pointToCheck.getOrdinate());
     }
 
     /**

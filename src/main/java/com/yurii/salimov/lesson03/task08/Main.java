@@ -9,15 +9,14 @@ package com.yurii.salimov.lesson03.task08;
 public class Main {
 
     public static void main(String[] args) {
-        String[] text = {"+25016", "-2470", "-q44e5"};
-
+        final String[] numbers = {"1234", "+25016", "-2470", "-q44e5"};
         try {
-            System.out.println("String -> int");
-            for (int i = 0; i < text.length; i++) {
-                System.out.println("\"" + text[i] + "\" -> " + MyInteger.parseInt(text[i]));
+            System.out.println("String -> int:");
+            for (String num : numbers) {
+                System.out.println("\"" + num + "\" -> " + MyInteger.parseInt(num) + ";");
             }
         } catch (ParseIntException ex) {
-            System.out.println(ex.getMessage());
+            ex.printStackTrace();
         }
     }
 }

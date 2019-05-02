@@ -66,12 +66,8 @@ public final class FigureGenerator implements Generator {
     public List<Figure> generateFigures(final int number) {
         final List<Figure> figures = new ArrayList<>();
         if (number > 0) {
-            Figure figure;
-            int figureNumber;
             for (int i = 0; i < number; i++) {
-                figureNumber = getNextInt();
-                figure = generateFigure(figureNumber);
-                figures.add(figure);
+                figures.add(generateFigure(getNextInt()));
             }
         }
         return figures;
@@ -85,10 +81,9 @@ public final class FigureGenerator implements Generator {
      */
     @Override
     public Circle generateCircle() {
-        final CircleBuilder builder = new CircleBuilder();
-        final int radius = getNextInt();
-        builder.addRadius(radius);
-        return builder.build();
+        return new CircleBuilder()
+                .addRadius(getNextInt())
+                .build();
     }
 
     /**
@@ -99,11 +94,10 @@ public final class FigureGenerator implements Generator {
      */
     @Override
     public Point generatePoint() {
-        final PointBuilder builder = new PointBuilder();
-        final int abscissa = getNextInt();
-        final int ordinate = getNextInt();
-        builder.addAbscissa(abscissa).addOrdinate(ordinate);
-        return builder.build();
+        return new PointBuilder()
+                .addAbscissa(getNextInt())
+                .addOrdinate(getNextInt())
+                .build();
     }
 
     /**
@@ -114,11 +108,10 @@ public final class FigureGenerator implements Generator {
      */
     @Override
     public Rectangle generateRectangle() {
-        final RectangleBuilder builder = new RectangleBuilder();
-        final int width = getNextInt();
-        final int height = getNextInt();
-        builder.addWidth(width).addHeight(height);
-        return builder.build();
+        return new RectangleBuilder()
+                .addWidth(getNextInt())
+                .addHeight(getNextInt())
+                .build();
     }
 
     /**
@@ -131,15 +124,11 @@ public final class FigureGenerator implements Generator {
     public Triangle generateTriangle() {
         final TriangleBuilder builder = new TriangleBuilder();
         Triangle triangle;
-        int sideA;
-        int sideB;
-        int sideC;
         do {
-            sideA = getNextInt();
-            sideB = getNextInt();
-            sideC = getNextInt();
-            builder.addSideA(sideA).addSideB(sideB).addSideC(sideC);
-            triangle = builder.build();
+            triangle = builder.addSideA(getNextInt())
+                    .addSideB(getNextInt())
+                    .addSideC(getNextInt())
+                    .build();
         } while (!triangle.isTriangle());
         return triangle;
     }

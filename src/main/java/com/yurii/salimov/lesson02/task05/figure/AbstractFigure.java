@@ -31,19 +31,6 @@ public abstract class AbstractFigure implements Figure, Cloneable {
     }
 
     /**
-     * Indicates whether some other object is "equal to" this one.
-     *
-     * @param object The reference object with which to compare.
-     * @return true if this object is the same as the object
-     * argument, false otherwise otherwise.
-     */
-    @Override
-    public boolean equals(final Object object) {
-        return (this == object) || (object != null) &&
-                (getClass() == object.getClass());
-    }
-
-    /**
      * Creates and returns a copy of this object.
      *
      * @return A clone of this instance (newer null).
@@ -58,6 +45,16 @@ public abstract class AbstractFigure implements Figure, Cloneable {
         }
         return clone;
     }
+
+    /**
+     * Indicates whether some other object is "equal to" this one.
+     *
+     * @param object The reference object with which to compare.
+     * @return true if this object is the same as the object
+     * argument, false otherwise otherwise.
+     */
+    @Override
+    public abstract boolean equals(Object object);
 
     /**
      * Returns a hash code value for the object.
@@ -77,8 +74,9 @@ public abstract class AbstractFigure implements Figure, Cloneable {
      * @return the new point.
      */
     protected Point createPoint(final double abscissa, final double ordinate) {
-        final PointBuilder builder = Point.getBuilder();
-        builder.addAbscissa(abscissa).addOrdinate(ordinate);
-        return builder.build();
+        return Point.getBuilder()
+                .addAbscissa(abscissa)
+                .addOrdinate(ordinate)
+                .build();
     }
 }

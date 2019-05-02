@@ -4,15 +4,13 @@ package com.yurii.salimov.lesson03.task05;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Triangle extends Figure {
+public final class Triangle implements Figure {
 
-    private static final String NAME = "Triangle";
+    private final double sideA;
+    private final double sideB;
+    private final double sideC;
 
-    private double sideA;
-    private double sideB;
-    private double sideC;
-
-    public Triangle(double sideA, double sideB, double sideC) {
+    public Triangle(final double sideA, final double sideB, final double sideC) {
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;
@@ -31,39 +29,35 @@ public class Triangle extends Figure {
     }
 
     @Override
-    public String getName() {
-        return NAME;
+    public String toString() {
+        return "Triangle{" +
+                "sideA=" + this.sideA +
+                ", sideB=" + this.sideB +
+                ", sideC=" + this.sideC +
+                ", area=" + getArea() +
+                '}';
     }
 
-    public double getSideA() {
-        return this.sideA;
+    @Override
+    public boolean equals(final Object object) {
+        if (this == object) {
+            return true;
+        }
+        if ((object == null) || (getClass() != object.getClass())) {
+            return false;
+        }
+        final Triangle that = (Triangle) object;
+        return (this.sideA == that.sideA) &&
+                (this.sideB == that.sideB) &&
+                (this.sideC == that.sideC);
     }
 
-    public void setSideA(double sideA) {
-        this.sideA = sideA;
-    }
-
-    public double getSideB() {
-        return this.sideB;
-    }
-
-    public void setSideB(double sideB) {
-        this.sideB = sideB;
-    }
-
-    public double getSideC() {
-        return this.sideC;
-    }
-
-    public void setSideC(double sideC) {
-        this.sideC = sideC;
-    }
-
-    public static Triangle combine(Triangle triangle1, Triangle triangle2) {
-        return new Triangle(
-                triangle1.getSideA() + triangle2.getSideA(),
-                triangle1.getSideB() + triangle2.getSideB(),
-                triangle1.getSideC() + triangle2.getSideC()
-        );
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + Double.hashCode(this.sideA);
+        result = 31 * result + Double.hashCode(this.sideB);
+        result = 31 * result + Double.hashCode(this.sideC);
+        return result;
     }
 }

@@ -46,7 +46,7 @@ public final class FigureList {
         new Sorting(this.list, sortingType).sort();
     }
 
-    public Figure get( final int index) {
+    public Figure get(final int index) {
         return this.list[index];
     }
 
@@ -64,7 +64,7 @@ public final class FigureList {
         }
     }
 
-    private void resizeList( final int newLength) {
+    private void resizeList(final int newLength) {
         final Figure[] list = new Figure[newLength];
         final int length = this.list.length < newLength ? this.list.length : newLength;
         System.arraycopy(this.list, 0, list, 0, length);

@@ -4,14 +4,12 @@ package com.yurii.salimov.lesson03.task05;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Rectangle extends Figure {
+public final class Rectangle implements Figure {
 
-    private static final String NAME = "Rectangle";
+    private final double width;
+    private final double height;
 
-    private double width;
-    private double height;
-
-    public Rectangle(double width, double height) {
+    public Rectangle(final double width, final double height) {
         this.width = width;
         this.height = height;
     }
@@ -22,30 +20,32 @@ public class Rectangle extends Figure {
     }
 
     @Override
-    public String getName() {
-        return NAME;
+    public String toString() {
+        return "Rectangle{" +
+                "width=" + this.width +
+                ", height=" + this.height +
+                ", area=" + getArea() +
+                '}';
     }
 
-    public double getWidth() {
-        return this.width;
+    @Override
+    public boolean equals(final Object object) {
+        if (this == object) {
+            return true;
+        }
+        if ((object == null) || (getClass() != object.getClass())) {
+            return false;
+        }
+        final Rectangle that = (Rectangle) object;
+        return (this.width == that.width) &&
+                (this.height == that.height);
     }
 
-    public void setWidth(double width) {
-        this.width = width;
-    }
-
-    public double getHeight() {
-        return this.height;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
-    public static Rectangle combine(final Rectangle rectangle1, final Rectangle rectangle2) {
-        return new Rectangle(
-                rectangle1.getHeight() + rectangle2.getHeight(),
-                rectangle1.getWidth() + rectangle2.getWidth()
-        );
+    @Override
+    public int hashCode() {
+        int result = 12;
+        result = 31 * result + Double.hashCode(this.width);
+        result = 31 * result + Double.hashCode(this.height);
+        return result;
     }
 }

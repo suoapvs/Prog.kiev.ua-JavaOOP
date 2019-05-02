@@ -6,7 +6,7 @@ package com.yurii.salimov.lesson02.task03_04_06;
  */
 public abstract class Phone {
 
-    private static PhoneList list = new PhoneList();
+    private static PhoneList phones = new PhoneList();
 
     protected String model;
     protected String phoneNumber;
@@ -16,7 +16,7 @@ public abstract class Phone {
     protected boolean touch;
     protected boolean hasWifi;
 
-    public Phone() {
+    protected Phone() {
         addPhone(this);
     }
 
@@ -28,11 +28,11 @@ public abstract class Phone {
     }
 
     public static void addPhone(Phone phone) {
-        list.add(phone);
+        phones.add(phone);
     }
 
     public static void showList() {
-        list.showAllList();
+        phones.showAllList();
     }
 
     public void call(final String number) {
@@ -43,8 +43,7 @@ public abstract class Phone {
 
     private void answer(final String number) {
         try {
-            final Phone phone = list.findPhone(number);
-            System.out.println(phone.getModel() + " is answer.");
+            System.out.println(phones.findPhone(number) + " is answer.");
         } catch (Exception e) {
             System.out.println(number + " is answer.");
         }

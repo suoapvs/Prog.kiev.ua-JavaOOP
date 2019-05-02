@@ -15,7 +15,7 @@ public class Main {
 
         //Arrays.sort(list);
         //Arrays.sort(list, new HumanComparator());
-        Arrays.sort(list, (h1, h2) -> h2.getAge() - h1.getAge());
+        Arrays.sort(list, (first, second) -> second.getAge() - first.getAge());
 
         for (Human human : list) {
             System.out.println(human.getAge());

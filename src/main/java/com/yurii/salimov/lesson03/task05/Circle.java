@@ -4,13 +4,11 @@ package com.yurii.salimov.lesson03.task05;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Circle extends Figure {
+public final class Circle implements Figure {
 
-    private static final String NAME = "Circle";
+    private final double radius;
 
-    private double radius;
-
-    public Circle(double radius) {
+    public Circle(final double radius) {
         this.radius = radius;
     }
 
@@ -20,19 +18,29 @@ public class Circle extends Figure {
     }
 
     @Override
-    public String getName() {
-        return NAME;
+    public String toString() {
+        return "Circle{" +
+                "radius=" + this.radius +
+                ", area=" + getArea() +
+                '}';
     }
 
-    public double getRadius() {
-        return this.radius;
+    @Override
+    public boolean equals(final Object object) {
+        if (this == object) {
+            return true;
+        }
+        if ((object == null) || (getClass() != object.getClass())) {
+            return false;
+        }
+        final Circle that = (Circle) object;
+        return (this.radius == that.radius);
     }
 
-    public void setRadius(double radius) {
-        this.radius = radius;
-    }
-
-    public static Circle combine(final Circle circle1, final Circle circle2) {
-        return new Circle(circle1.getRadius() + circle2.getRadius());
+    @Override
+    public int hashCode() {
+        int result = 14;
+        result = 31 * result + Double.hashCode(this.radius);
+        return result;
     }
 }

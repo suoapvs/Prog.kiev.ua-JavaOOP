@@ -19,7 +19,7 @@ public interface Analyzer {
      * @param figures the figure list to analyze.
      * @return the figure with a maximum area.
      */
-    Figure getWithMaxArea(List<Figure> figures);
+    Figure getWithMaxArea(List<? extends Figure> figures);
 
     /**
      * Returns a figure with a maximum area.
@@ -36,7 +36,7 @@ public interface Analyzer {
      * @param figures the figure list to analyze.
      * @return the figure with a minimum area.
      */
-    Figure getWithMinArea(List<Figure> figures);
+    Figure getWithMinArea(List<? extends Figure> figures);
 
     /**
      * Returns a figure with a minimum area.
@@ -53,7 +53,7 @@ public interface Analyzer {
      * @param figures the figure list to analyze.
      * @return the figure with a maximum perimeter.
      */
-    Figure getWithMaxPerimeter(List<Figure> figures);
+    Figure getWithMaxPerimeter(List<? extends Figure> figures);
 
     /**
      * Returns a figure with a maximum perimeter.
@@ -70,7 +70,7 @@ public interface Analyzer {
      * @param figures the figure list to analyze.
      * @return the figure with a maximum perimeter.
      */
-    Figure getWithMinPerimeter(List<Figure> figures);
+    Figure getWithMinPerimeter(List<? extends Figure> figures);
 
     /**
      * Returns a figure with a minimum perimeter.

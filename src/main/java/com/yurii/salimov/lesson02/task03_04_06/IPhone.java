@@ -14,7 +14,7 @@ public class IPhone extends Phone {
     }
 
     @Override
-    public void sendSMS(String number, String message) {
+    public void sendSMS(final String number, final String message) {
         System.out.println(this.model + " is sending sms: \"" + message + "\" to " + number);
         this.smsCounter++;
     }

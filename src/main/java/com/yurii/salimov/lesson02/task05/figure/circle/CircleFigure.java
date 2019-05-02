@@ -77,34 +77,23 @@ final class CircleFigure extends AbstractFigure implements Circle {
                 ", diameter = " + getDiameter();
     }
 
-    /**
-     * Indicates whether some other object is "equal to" this one.
-     *
-     * @param object The reference object with which to compare.
-     * @return true if this object is the same as the object
-     * argument, false otherwise otherwise.
-     */
     @Override
     public boolean equals(final Object object) {
-        boolean result = super.equals(object);
-        if (result) {
-            final CircleFigure other = (CircleFigure) object;
-            result = (this.radius == other.radius);
+        if (this == object) {
+            return true;
         }
-        return result;
+        if ((object == null) || (getClass() != object.getClass())) {
+            return false;
+        }
+        final CircleFigure that = (CircleFigure) object;
+        return (this.radius == that.radius);
     }
 
-    /**
-     * Returns a hash code value for the object.
-     * This method is supported for the benefit
-     * of hash tables such as those provided by HashMap.
-     *
-     * @return A hash code value for this object.
-     */
     @Override
     public int hashCode() {
-        long temp = Double.doubleToLongBits(this.radius);
-        return (int) (temp ^ (temp >>> 32));
+        int result = 15;
+        result = 31 * result + Double.hashCode(this.radius);
+        return result;
     }
 
     /**
@@ -144,9 +133,10 @@ final class CircleFigure extends AbstractFigure implements Circle {
      */
     @Override
     public Point getCentre() {
-        final double abscissa = this.radius;
-        final double ordinate = this.radius;
-        return createPoint(abscissa, ordinate);
+        return createPoint(
+                this.radius,
+                this.radius
+        );
     }
 
     /**
@@ -169,11 +159,10 @@ final class CircleFigure extends AbstractFigure implements Circle {
         final double diameter = getDiameter();
         final PointBuilder builder = Point.getBuilder();
         Point point;
-        for (int abscissa = 0; abscissa <= diameter; abscissa++) {
+        for (double abscissa = 0; abscissa <= diameter; abscissa++) {
             builder.addAbscissa(abscissa);
-            for (int ordinate = 0; ordinate <= diameter; ordinate++) {
-                builder.addOrdinate(ordinate);
-                point = builder.build();
+            for (double ordinate = 0; ordinate <= diameter; ordinate++) {
+                point = builder.addOrdinate(ordinate).build();
                 if (isPointInCircle(point)) {
                     point.draw();
                 } else {
@@ -192,8 +181,7 @@ final class CircleFigure extends AbstractFigure implements Circle {
      * false otherwise.
      */
     private boolean isPointInCircle(final Point point) {
-        final double lengthToCentre = calculateLengthToCentre(point);
-        return (lengthToCentre <= this.radius);
+        return (calculateLengthToCentre(point) <= this.radius);
     }
 
     /**

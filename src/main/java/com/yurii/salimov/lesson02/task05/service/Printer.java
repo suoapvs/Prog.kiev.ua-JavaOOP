@@ -19,7 +19,7 @@ public interface Printer {
      *
      * @param figures the figure list to print.
      */
-    void printlnAll(List<Figure> figures);
+    void printlnAll(List<? extends Figure> figures);
 
     /**
      * Prints the incoming geometric figure in the console.
@@ -33,28 +33,28 @@ public interface Printer {
      *
      * @param figures the figure list to analyze.
      */
-    void printlnWithMaxArea(List<Figure> figures);
+    void printlnWithMaxArea(List<? extends Figure> figures);
 
     /**
      * Prints the incoming geometric figures with a minimum area.
      *
      * @param figures the figure list to analyze.
      */
-    void printlnWithMinArea(List<Figure> figures);
+    void printlnWithMinArea(List<? extends Figure> figures);
 
     /**
      * Prints a geometric figures with a maximum perimeter.
      *
      * @param figures the figure list to analyze.
      */
-    void printlnWithMaxPerimeter(List<Figure> figures);
+    void printlnWithMaxPerimeter(List<? extends Figure> figures);
 
     /**
      * Prints the incoming geometric figures with a minimum perimeter.
      *
      * @param figures the figure list to analyze.
      */
-    void printlnWithMinPerimeter(List<Figure> figures);
+    void printlnWithMinPerimeter(List<? extends Figure> figures);
 
     /**
      * Draws the incoming incoming geometric figures in the console.
@@ -75,7 +75,7 @@ public interface Printer {
      *
      * @param figures the figure list to print and draw.
      */
-    void printAndDrawAll(List<Figure> figures);
+    void printAndDrawAll(List<? extends Figure> figures);
 
     /**
      * Prints and draws the incoming geometric figure in the console.

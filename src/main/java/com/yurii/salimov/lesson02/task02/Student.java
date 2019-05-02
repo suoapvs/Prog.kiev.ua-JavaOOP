@@ -15,7 +15,7 @@ public final class Student {
     public Student(String name, String surname, Date birth) {
         this.name = name;
         this.surname = surname;
-        this.birth = birth;
+        this.birth = new Date(birth.getTime());
     }
 
     @Override
@@ -27,12 +27,11 @@ public final class Student {
         return this.name;
     }
 
-
     public String getSurname() {
         return this.surname;
     }
 
     public Date getBirth() {
-        return this.birth;
+        return new Date(this.birth.getTime());
     }
 }

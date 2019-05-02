@@ -1,16 +1,22 @@
 package com.yurii.salimov.lesson03.task01_02_03;
 
+import java.util.Objects;
+
 /**
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
 public abstract class Developer {
 
-    protected String name;
-    protected double basicSalary;
-    protected int experience;
+    protected final String name;
+    protected final double basicSalary;
+    protected final int experience;
 
-    public Developer(String name, double basicSalary, int experience) {
+    protected Developer(
+            final String name,
+            final double basicSalary,
+            final int experience
+    ) {
         this.name = name;
         this.basicSalary = basicSalary;
         this.experience = experience;
@@ -21,12 +27,27 @@ public abstract class Developer {
         return this.name + ": " + this.basicSalary + " * " + this.experience + " = " + getSalary();
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public boolean equals(final Object object) {
+        if (this == object) {
+            return true;
+        }
+        if ((object == null) || (getClass() != object.getClass())) {
+            return false;
+        }
+        final Developer that = (Developer) object;
+        return Objects.equals(name, that.name) &&
+                (this.basicSalary == that.basicSalary) &&
+                (this.experience == that.experience);
     }
 
-    public double getBasicSalary() {
-        return basicSalary;
+    @Override
+    public int hashCode() {
+        int result = 18;
+        result = 31 * result + Objects.hashCode(this.name);
+        result = 31 * result + Double.hashCode(this.basicSalary);
+        result = 31 * result + this.experience;
+        return result;
     }
 
     public abstract double getSalary();

@@ -95,13 +95,15 @@ final class RectangleFigure extends AbstractFigure implements Rectangle {
      */
     @Override
     public boolean equals(final Object object) {
-        boolean result = super.equals(object);
-        if (result) {
-            final RectangleFigure other = (RectangleFigure) object;
-            result = (this.width == other.width) &&
-                    (this.height == other.height);
+        if (this == object) {
+            return true;
         }
-        return result;
+        if ((object == null) || (getClass() != object.getClass())) {
+            return false;
+        }
+        final RectangleFigure that = (RectangleFigure) object;
+        return (this.width == that.width) &&
+                (this.height == that.height);
     }
 
     /**
@@ -113,10 +115,9 @@ final class RectangleFigure extends AbstractFigure implements Rectangle {
      */
     @Override
     public int hashCode() {
-        long temp = Double.doubleToLongBits(this.width);
-        int result = (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(this.height);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        int result = 24;
+        result = 31 * result + Double.hashCode(this.width);
+        result = 31 * result + Double.hashCode(this.height);
         return result;
     }
 
@@ -158,9 +159,7 @@ final class RectangleFigure extends AbstractFigure implements Rectangle {
      */
     @Override
     public Point getPointA() {
-        final double abscissa = 0;
-        final double ordinate = 0;
-        return createPoint(abscissa, ordinate);
+        return createPoint(0, 0);
     }
 
     /**
@@ -171,9 +170,7 @@ final class RectangleFigure extends AbstractFigure implements Rectangle {
      */
     @Override
     public Point getPointB() {
-        final double abscissa = 0;
-        final double ordinate = this.width;
-        return createPoint(abscissa, ordinate);
+        return createPoint(0, this.width);
     }
 
     /**
@@ -184,9 +181,7 @@ final class RectangleFigure extends AbstractFigure implements Rectangle {
      */
     @Override
     public Point getPointC() {
-        final double abscissa = this.height;
-        final double ordinate = this.width;
-        return createPoint(abscissa, ordinate);
+        return createPoint(this.height, this.width);
     }
 
     /**
@@ -197,9 +192,7 @@ final class RectangleFigure extends AbstractFigure implements Rectangle {
      */
     @Override
     public Point getPointD() {
-        final double abscissa = this.height;
-        final double ordinate = 0;
-        return createPoint(abscissa, ordinate);
+        return createPoint(this.height, 0);
     }
 
     /**
@@ -208,13 +201,12 @@ final class RectangleFigure extends AbstractFigure implements Rectangle {
     @Override
     public void draw() {
         final PointBuilder builder = Point.getBuilder();
-        Point point;
-        for (int abscissa = 0; abscissa <= this.width; abscissa++) {
+        for (double abscissa = 0; abscissa <= this.width; abscissa++) {
             builder.addAbscissa(abscissa);
-            for (int ordinate = 0; ordinate <= this.height; ordinate++) {
-                builder.addOrdinate(ordinate);
-                point = builder.build();
-                point.draw();
+            for (double ordinate = 0; ordinate <= this.height; ordinate++) {
+                builder.addOrdinate(ordinate)
+                        .build()
+                        .draw();
             }
             System.out.println();
         }

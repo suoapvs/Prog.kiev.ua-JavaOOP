@@ -21,7 +21,7 @@ public final class FigureAnalyzer implements Analyzer {
      * @throws IllegalArgumentException if the incoming figures is null or empty.
      */
     @Override
-    public Figure getWithMaxArea(final List<Figure> figures) throws IllegalArgumentException {
+    public Figure getWithMaxArea(final List<? extends Figure> figures) throws IllegalArgumentException {
         if (figures == null || figures.isEmpty()) {
             throw new IllegalArgumentException("Incoming figures list is null or empty!");
         }
@@ -52,7 +52,7 @@ public final class FigureAnalyzer implements Analyzer {
      * @throws IllegalArgumentException if the incoming figures is null or empty.
      */
     @Override
-    public Figure getWithMinArea(final List<Figure> figures) throws IllegalArgumentException {
+    public Figure getWithMinArea(final List<? extends Figure> figures) throws IllegalArgumentException {
         if (figures == null || figures.isEmpty()) {
             throw new IllegalArgumentException("Incoming figures list is null or empty!");
         }
@@ -83,7 +83,8 @@ public final class FigureAnalyzer implements Analyzer {
      * @throws IllegalArgumentException if the incoming figures is null or empty.
      */
     @Override
-    public Figure getWithMaxPerimeter(final List<Figure> figures) throws IllegalArgumentException {
+    public Figure getWithMaxPerimeter(final List<? extends Figure> figures)
+            throws IllegalArgumentException {
         if (figures == null || figures.isEmpty()) {
             throw new IllegalArgumentException("Incoming figures list is null or empty!");
         }
@@ -113,7 +114,8 @@ public final class FigureAnalyzer implements Analyzer {
      * @return the figure with a maximum perimeter.
      * @throws IllegalArgumentException if the incoming figures is null or empty.
      */
-    public Figure getWithMinPerimeter(final List<Figure> figures) throws IllegalArgumentException {
+    public Figure getWithMinPerimeter(final List<? extends Figure> figures)
+            throws IllegalArgumentException {
         if (figures == null || figures.isEmpty()) {
             throw new IllegalArgumentException("Incoming figures list is null or empty!");
         }
@@ -145,8 +147,10 @@ public final class FigureAnalyzer implements Analyzer {
      * of area of a "less" figure, false otherwise.
      * @throws IllegalArgumentException if one of the incoming figures is null.
      */
-    private static boolean areaAnalyzer(final Figure more, final Figure less)
-            throws IllegalArgumentException {
+    private static boolean areaAnalyzer(
+            final Figure more,
+            final Figure less
+    ) throws IllegalArgumentException {
         if (more == null || less == null) {
             throw new IllegalArgumentException("One of the incoming figures is null!");
         }
@@ -162,8 +166,10 @@ public final class FigureAnalyzer implements Analyzer {
      * of perimeter of a "less" figure, false otherwise.
      * @throws IllegalArgumentException if one of the incoming figures is null.
      */
-    private static boolean perimeterAnalyzer(final Figure more, final Figure less)
-            throws IllegalArgumentException {
+    private static boolean perimeterAnalyzer(
+            final Figure more,
+            final Figure less
+    ) throws IllegalArgumentException {
         if (more == null || less == null) {
             throw new IllegalArgumentException("One of the incoming figures is null!");
         }

@@ -54,8 +54,7 @@ public class Main {
      * @return the new Printer.
      */
     private static Printer getPrinter() {
-        final Analyzer analyzer = getAnalyzer();
-        return new FigurePrinter(analyzer);
+        return new FigurePrinter(getAnalyzer());
     }
 
     /**

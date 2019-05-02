@@ -39,7 +39,7 @@ public final class FigurePrinter implements Printer {
      * @throws IllegalArgumentException if the incoming figures is null or empty.
      */
     @Override
-    public void printlnAll(final List<Figure> figures) throws IllegalArgumentException {
+    public void printlnAll(final List<? extends Figure> figures) throws IllegalArgumentException {
         if (figures == null || figures.isEmpty()) {
             throw new IllegalArgumentException("Incoming figures list is null or empty!");
         }
@@ -68,13 +68,12 @@ public final class FigurePrinter implements Printer {
      * @throws IllegalArgumentException if the incoming figures is null or empty.
      */
     @Override
-    public void printlnWithMaxArea(final List<Figure> figures) throws IllegalArgumentException {
+    public void printlnWithMaxArea(final List<? extends Figure> figures) throws IllegalArgumentException {
         if (figures == null || figures.isEmpty()) {
             throw new IllegalArgumentException("Incoming figures list is null or empty!");
         }
         System.out.println("\nFigure with max area:");
-        Figure figureWithMaxArea = this.analyzer.getWithMaxArea(figures);
-        System.out.println(figureWithMaxArea);
+        System.out.println(this.analyzer.getWithMaxArea(figures));
     }
 
     /**
@@ -84,13 +83,12 @@ public final class FigurePrinter implements Printer {
      * @throws IllegalArgumentException if the incoming figures is null or empty.
      */
     @Override
-    public void printlnWithMinArea(final List<Figure> figures) throws IllegalArgumentException {
+    public void printlnWithMinArea(final List<? extends Figure> figures) throws IllegalArgumentException {
         if (figures == null || figures.isEmpty()) {
             throw new IllegalArgumentException("Incoming figures list is null or empty!");
         }
         System.out.println("\nFigure with min area:");
-        Figure figureWithMinArea = this.analyzer.getWithMinArea(figures);
-        System.out.println(figureWithMinArea);
+        System.out.println(this.analyzer.getWithMinArea(figures));
     }
 
     /**
@@ -100,13 +98,12 @@ public final class FigurePrinter implements Printer {
      * @throws IllegalArgumentException if the incoming figures is null or empty.
      */
     @Override
-    public void printlnWithMaxPerimeter(final List<Figure> figures) throws IllegalArgumentException {
+    public void printlnWithMaxPerimeter(final List<? extends Figure> figures) throws IllegalArgumentException {
         if (figures == null || figures.isEmpty()) {
             throw new IllegalArgumentException("Incoming figures list is null or empty!");
         }
         System.out.println("\nFigure with max perimeter:");
-        Figure figureWithMaxPerimeter = this.analyzer.getWithMaxPerimeter(figures);
-        System.out.println(figureWithMaxPerimeter);
+        System.out.println(this.analyzer.getWithMaxPerimeter(figures));
     }
 
     /**
@@ -116,13 +113,12 @@ public final class FigurePrinter implements Printer {
      * @throws IllegalArgumentException if the incoming figures is null or empty.
      */
     @Override
-    public void printlnWithMinPerimeter(final List<Figure> figures) throws IllegalArgumentException {
+    public void printlnWithMinPerimeter(final List<? extends Figure> figures) throws IllegalArgumentException {
         if (figures == null || figures.isEmpty()) {
             throw new IllegalArgumentException("Incoming figures list is null or empty!");
         }
         System.out.println("\nFigure with min perimeter:");
-        Figure figureWithMinPerimeter = this.analyzer.getWithMinPerimeter(figures);
-        System.out.println(figureWithMinPerimeter);
+        System.out.println(this.analyzer.getWithMinPerimeter(figures));
     }
 
     /**
@@ -161,7 +157,7 @@ public final class FigurePrinter implements Printer {
      * @throws IllegalArgumentException if the incoming figures is null or empty.
      */
     @Override
-    public void printAndDrawAll(final List<Figure> figures) throws IllegalArgumentException {
+    public void printAndDrawAll(final List<? extends Figure> figures) throws IllegalArgumentException {
         if (figures == null || figures.isEmpty()) {
             throw new IllegalArgumentException("Incoming figures list is null or empty!");
         }

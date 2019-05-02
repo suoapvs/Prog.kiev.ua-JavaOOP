@@ -4,9 +4,7 @@ package com.yurii.salimov.lesson04.task02;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public final class Triangle extends Figure {
-
-    private static final String NAME = "Triangle";
+public final class Triangle implements Figure {
 
     private final double sideA;
     private final double sideB;
@@ -31,26 +29,35 @@ public final class Triangle extends Figure {
     }
 
     @Override
-    public String getName() {
-        return NAME;
+    public String toString() {
+        return "Triangle{" +
+                "sideA=" + this.sideA +
+                ", sideB=" + this.sideB +
+                ", sideC=" + this.sideC +
+                ", area=" + getArea() +
+                '}';
     }
 
-    public double getSideA() {
-        return this.sideA;
+    @Override
+    public boolean equals(final Object object) {
+        if (this == object) {
+            return true;
+        }
+        if ((object == null) || (getClass() != object.getClass())) {
+            return false;
+        }
+        final Triangle that = (Triangle) object;
+        return (this.sideA == that.sideA) &&
+                (this.sideB == that.sideB) &&
+                (this.sideC == that.sideC);
     }
 
-    public double getSideB() {
-        return this.sideB;
-    }
-
-    public double getSideC() {
-        return this.sideC;
-    }
-
-    public static Triangle combine(final Triangle first, final Triangle second) {
-        final double sideA = first.getSideA() + second.getSideA();
-        final double sideB = first.getSideB() + second.getSideB();
-        final double sideC = first.getSideC() + second.getSideC();
-        return new Triangle(sideA, sideB, sideC);
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + Double.hashCode(this.sideA);
+        result = 31 * result + Double.hashCode(this.sideB);
+        result = 31 * result + Double.hashCode(this.sideC);
+        return result;
     }
 }

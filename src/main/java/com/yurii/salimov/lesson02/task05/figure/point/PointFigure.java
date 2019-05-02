@@ -55,22 +55,17 @@ final class PointFigure extends AbstractFigure implements Point {
                 ", ordinate = " + this.ordinate;
     }
 
-    /**
-     * Indicates whether some other object is "equal to" this one.
-     *
-     * @param object The reference object with which to compare.
-     * @return true if this object is the same as the object
-     * argument, false otherwise otherwise.
-     */
     @Override
     public boolean equals(final Object object) {
-        boolean result = super.equals(object);
-        if (result) {
-            final PointFigure other = (PointFigure) object;
-            result = (this.abscissa == other.abscissa) &&
-                    (this.ordinate == other.ordinate);
+        if (this == object) {
+            return true;
         }
-        return result;
+        if ((object == null) || (getClass() != object.getClass())) {
+            return false;
+        }
+        final PointFigure that = (PointFigure) object;
+        return (this.abscissa == that.abscissa) &&
+                (this.ordinate == that.ordinate);
     }
 
     /**
@@ -82,10 +77,9 @@ final class PointFigure extends AbstractFigure implements Point {
      */
     @Override
     public int hashCode() {
-        long temp = Double.doubleToLongBits(this.abscissa);
-        int result = (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(this.ordinate);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        int result = 17;
+        result = 31 * result + Double.hashCode(this.abscissa);
+        result = 31 * result + Double.hashCode(this.ordinate);
         return result;
     }
 

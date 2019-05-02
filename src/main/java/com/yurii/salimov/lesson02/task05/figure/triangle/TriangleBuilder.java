@@ -11,6 +11,8 @@ import com.yurii.salimov.lesson02.task05.figure.Builder;
  */
 public final class TriangleBuilder implements Builder<Triangle> {
 
+    private final static int MIN_LENGTH = 0;
+
     /**
      * The length of a first side (A) of a triangle.
      * The side between the B and C points.
@@ -37,10 +39,11 @@ public final class TriangleBuilder implements Builder<Triangle> {
      */
     @Override
     public Triangle build() {
-        final double sideA = getSideA();
-        final double sideB = getSideB();
-        final double sideC = getSideC();
-        return new TriangleFigure(sideA, sideB, sideC);
+        return new TriangleFigure(
+                getSideA(),
+                getSideB(),
+                getSideC()
+        );
     }
 
     /**
@@ -83,7 +86,7 @@ public final class TriangleBuilder implements Builder<Triangle> {
      * @return The first triangle side (A) (newer negative).
      */
     private double getSideA() {
-        return (this.sideA > 0) ? this.sideA : 0;
+        return validate(this.sideA);
     }
 
     /**
@@ -93,7 +96,7 @@ public final class TriangleBuilder implements Builder<Triangle> {
      * @return The first triangle side (B) (newer negative).
      */
     private double getSideB() {
-        return (this.sideB > 0) ? this.sideB : 0;
+        return validate(this.sideB);
     }
 
     /**
@@ -103,6 +106,10 @@ public final class TriangleBuilder implements Builder<Triangle> {
      * @return The first triangle side (C) (newer negative).
      */
     private double getSideC() {
-        return (this.sideC > 0) ? this.sideC : 0;
+        return validate(this.sideC);
+    }
+
+    private double validate(final double side) {
+        return Math.max(side, MIN_LENGTH);
     }
 }

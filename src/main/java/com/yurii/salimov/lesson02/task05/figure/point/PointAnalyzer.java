@@ -17,7 +17,7 @@ public final class PointAnalyzer {
      * @return the minimum abscissa.
      * @throws IllegalArgumentException if the incoming points is null or empty.
      */
-    public double getMinAbscissa(final List<Point> points) throws IllegalArgumentException {
+    public double getMinAbscissa(final List<? extends Point> points) throws IllegalArgumentException {
         if (points == null || points.isEmpty()) {
             throw new IllegalArgumentException("Incoming points list is null or empty!");
         }
@@ -35,7 +35,7 @@ public final class PointAnalyzer {
      * @return the maximum abscissa.
      * @throws IllegalArgumentException if the incoming points is null or empty.
      */
-    public double getMaxAbscissa(final List<Point> points) throws IllegalArgumentException {
+    public double getMaxAbscissa(final List<? extends Point> points) throws IllegalArgumentException {
         if (points == null || points.isEmpty()) {
             throw new IllegalArgumentException("Incoming points list is null or empty!");
         }
@@ -53,7 +53,7 @@ public final class PointAnalyzer {
      * @return the minimum ordinate.
      * @throws IllegalArgumentException if the incoming points is null or empty.
      */
-    public double getMinOrdinate(final List<Point> points) throws IllegalArgumentException {
+    public double getMinOrdinate(final List<? extends Point> points) throws IllegalArgumentException {
         if (points == null || points.isEmpty()) {
             throw new IllegalArgumentException("Incoming points list is null or empty!");
         }
@@ -71,7 +71,7 @@ public final class PointAnalyzer {
      * @return the maximum ordinate.
      * @throws IllegalArgumentException if the incoming points is null or empty.
      */
-    public double getMaxOrdinate(final List<Point> points) throws IllegalArgumentException {
+    public double getMaxOrdinate(final List<? extends Point> points) throws IllegalArgumentException {
         if (points == null || points.isEmpty()) {
             throw new IllegalArgumentException("Incoming points list is null or empty!");
         }

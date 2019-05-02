@@ -11,15 +11,8 @@ package com.yurii.salimov.lesson03.task06;
 public class Main {
 
     public static void main(String[] args) {
-        Url url = new Url("para1=value1&param2=value2&param3=value3");
-        url.parsing();
-        System.out.println();
-
-        url.setUrl("q=ee4gv&dqw=qqw&para=val66&pard=rftf&parq=va72&pd=value3");
-        url.parsing();
-        System.out.println();
-
-        url.setUrl("p&ara1=value1&param2=value");
-        url.parsing();
+        new Url("para1=value1&param2=value2&param3=value3").parse();
+        new Url("q=ee4gv&dqw=qqw&para=val66&pard=rftf&parq=va72&pd=value3").parse();
+        new Url("p&ara1=value1&param2=value").parse(); // incorrect URL
     }
 }

@@ -11,6 +11,8 @@ import com.yurii.salimov.lesson02.task05.figure.Builder;
  */
 public final class CircleBuilder implements Builder<Circle> {
 
+    private final static int MIN_RADIUS = 0;
+
     /**
      * The circle radius.
      */
@@ -24,8 +26,7 @@ public final class CircleBuilder implements Builder<Circle> {
      */
     @Override
     public Circle build() {
-        final double radius = getRadius();
-        return new CircleFigure(radius);
+        return new CircleFigure(getRadius());
     }
 
     /**
@@ -46,6 +47,6 @@ public final class CircleBuilder implements Builder<Circle> {
      * @return The radius (newer negative).
      */
     private double getRadius() {
-        return (this.radius > 0) ? this.radius : 0;
+        return Math.max(this.radius, MIN_RADIUS);
     }
 }

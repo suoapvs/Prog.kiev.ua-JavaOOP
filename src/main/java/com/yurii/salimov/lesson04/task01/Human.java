@@ -14,14 +14,8 @@ public final class Human implements Comparable {
 
     @Override
     public int compareTo(Object obj) {
-        final Human other = (Human) obj;
-        if (this.age < other.age) {
-            return -1;
-        } else if (this.age > other.age) {
-            return 1;
-        } else {
-            return 0;
-        }
+        final Human that = (Human) obj;
+        return Integer.compare(this.age, that.age);
     }
 
     public int getAge() {

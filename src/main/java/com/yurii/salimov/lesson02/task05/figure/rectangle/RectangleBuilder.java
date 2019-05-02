@@ -11,6 +11,8 @@ import com.yurii.salimov.lesson02.task05.figure.Builder;
  */
 public final class RectangleBuilder implements Builder<Rectangle> {
 
+    private final static int MIN_LENGTH = 0;
+
     /**
      * The rectangle width.
      */
@@ -29,9 +31,7 @@ public final class RectangleBuilder implements Builder<Rectangle> {
      */
     @Override
     public Rectangle build() {
-        final double width = getWidth();
-        final double height = getHeight();
-        return new RectangleFigure(width, height);
+        return new RectangleFigure(getWidth(), getHeight());
     }
 
     /**
@@ -63,7 +63,7 @@ public final class RectangleBuilder implements Builder<Rectangle> {
      * @return The width (newer negative).
      */
     private double getWidth() {
-        return (this.width > 0) ? this.width : 0;
+        return validate(this.width);
     }
 
     /**
@@ -73,6 +73,10 @@ public final class RectangleBuilder implements Builder<Rectangle> {
      * @return The height (newer negative).
      */
     private double getHeight() {
-        return (this.height > 0) ? this.height : 0;
+        return validate(this.height);
+    }
+
+    private double validate(final double side) {
+        return Math.max(side, MIN_LENGTH);
     }
 }

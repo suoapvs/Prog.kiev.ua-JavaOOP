@@ -1,6 +1,6 @@
 package com.yurii.salimov.lesson03.task05;
 
-/*
+/**
  * 3.5 Построить иерархию классов «Фигуры» с учетом знаний о полиморфизме.
  * У каждого класса фигуры должен быть метод подсчета площади.
  * Создать список фигур. Вывести площади всех фигур на экран.
@@ -11,8 +11,7 @@ package com.yurii.salimov.lesson03.task05;
 public class Main {
 
     public static void main(String[] args) {
-        final FigureList figureList = createFigureList();
-        figureList.showAllList();
+        createFigureList().showAllList();
     }
 
     private static FigureList createFigureList() {

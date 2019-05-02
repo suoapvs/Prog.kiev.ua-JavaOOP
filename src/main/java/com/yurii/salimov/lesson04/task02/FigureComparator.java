@@ -9,14 +9,9 @@ import java.util.Comparator;
 public final class FigureComparator<T extends Figure> implements Comparator<T> {
 
     @Override
-    public int compare(final T figure1, final T figure2) {
-        if (figure1 != null && figure2 != null) {
-            if (figure1.getArea() < figure2.getArea()) {
-                return -1;
-            }
-            if (figure1.getArea() > figure2.getArea()) {
-                return 1;
-            }
+    public int compare(final T first, final T second) {
+        if ((first != null) && (second != null)) {
+            return Double.compare(first.getArea(), second.getArea());
         }
         return 0;
     }

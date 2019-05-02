@@ -4,19 +4,22 @@ package com.yurii.salimov.lesson03.task09;
  * @author Yuriy Salimov (yuriy.alex.salimov@gmail.com)
  * @version 1.0
  */
-public class Arithmetic {
+public final class Arithmetic {
 
-    public static double sqrt(double number) throws SqrtException {
+    private Arithmetic() {
+    }
+
+    public static double sqrt(final double number) throws SqrtException {
         if (number < 0) {
             throw new SqrtException(number + " - negative number.");
         }
         return Math.sqrt(number);
     }
 
-    public static double division(double num1, double num2) throws ZeroException {
-        if (num2 == 0) {
-            throw new ZeroException(num1 + " / " + num2 + " - division by zero.");
+    public static double division(final double first, final double second) throws ZeroException {
+        if (second == 0) {
+            throw new ZeroException(first + " / " + second + " - division by zero.");
         }
-        return num1 / num2;
+        return (first / second);
     }
 }
